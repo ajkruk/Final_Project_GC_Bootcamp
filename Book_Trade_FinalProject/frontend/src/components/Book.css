@@ -1,0 +1,31 @@
+.book {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+    background-color: white;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    padding: 1em;
+    border-radius: 4px;
+}
+
+.book-image {
+    width: 100px;
+    height: 150px;
+    object-fit: cover;
+    margin-right: 1em;
+    border-radius: 2px;
+}
+
+.book-info {
+    flex-grow: 1;
+}
+
+.book-title {
+    font-size: 1rem;
+    font-weight: bold;
+    margin: 00
+}
+
+@media (max-width: 768px) {
+
+}
