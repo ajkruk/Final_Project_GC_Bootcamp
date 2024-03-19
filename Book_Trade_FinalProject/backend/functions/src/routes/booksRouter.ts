@@ -1,85 +1,82 @@
 import express from "express";
+import { getClient } from '../db'
 import { ObjectId } from "mongodb";
 import BookListing from "../models/BookListing";
 
 const booksRouter = express.Router();
 
-const listings: BookListing[] = [];
-
 const errorResponse = (error: any, res: any) => {
   console.error("FAIL", error);
-  res.status(500).json({ message: "Internal Server Error" });
-};
+  res.status(500).json({message: "Internal Server Error"})
+}
 
-booksRouter.get("/BookTrade", async (req, res) => {
+booksRouter.get("/Trade2Save", async (req, res) => {
   try {
-    res.status(200).json(listings);
+    const client = await getClient();
+    const cursor = client.db().collection<BookListing>("Books2Trade").find();
+    const results = await cursor.toArray();
+    res.status(200).json(results);
   } catch (err) {
     errorResponse(err, res);
   }
-});
+ });
 
-booksRouter.get("/BookTrade/:id", async (req, res) => {
+booksRouter.get("/Trade2Save/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);
-    const result: BookListing | undefined = listings.find((item) =>
-      item._id?.equals(_id)
-    );
-    if (result) {
-      res.status(200);
-      res.json(result);
+    const client = await getClient();
+    const books = await client.db().collection<BookListing>("Books2Trade")
+        .findOne({ _id });
+    if (books) {
+      res.status(200).json(books);
     } else {
-      res.status(404).send(`Title not found`);
+      res.status(404).json({message: "Not Found"});
     }
-  } catch (err) {
-    errorResponse(err, res);
-  }
-});
+  } catch (err) { console.log("error") }
+ });
 
-booksRouter.post("/BookTrade", async (req, res) => {
+
+
+booksRouter.post("/Trade2Save", async (req, res) => {
   try {
-    const newListing: BookListing = req.body;
-    newListing._id = new ObjectId();
-    listings.push(newListing);
-    res.status(201).json(newListing);
-  } catch (err) {
-    errorResponse(err, res);
-  }
-});
+    const books: BookListing = req.body;
+    const client = await getClient();
+    await client.db()
+        .collection<BookListing>("book")
+        .insertOne(books);
+    res.status(201).json(books);
+  } catch (err) { console.log("error") }
+ });
 
-booksRouter.put("/BookTrade/:id", async (req, res) => {
+booksRouter.put("/Trade2Save/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);
-    const listing: BookListing = req.body;
-    listing._id = new ObjectId(listing._id);
-    const index: number = listings.findIndex((item) => item._id?.equals(_id)); //this is not working
-    if (index !== -1) {
-      listings[index] = listing;
-      res.status(200);
-      res.json(listing);
+    const updatedBook: BookListing = req.body;
+    delete updatedBook._id; // remove _id from body so we only have one.
+    const client = await getClient();
+    const result = await client.db().collection<BookListing>("Books2Trade")
+        .replaceOne({ _id }, updatedBook);
+    if (result.modifiedCount) {
+      updatedBook._id = _id;
+      res.status(200).json(updatedBook);
     } else {
-      res.status(404);
-      res.send(`Book not found`);
+      res.status(404).json({ message: "Not Found" });
     }
-  } catch (err) {
-    errorResponse(err, res);
-  }
-});
+  } catch (err) { console.log("error") }
+ });
 
-booksRouter.delete("/BookTrader/:id", async (req, res) => {
+booksRouter.delete("/Trade2Save/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);
-    const index: number = listings.findIndex((item) => item._id?.equals(_id));
-    if (index !== -1) {
-      listings.splice(index, 1);
+    const client = await getClient();
+    const result = await client.db().collection<BookListing>("Books2Trade")
+        .deleteOne({ _id });
+    if (result.deletedCount) {
       res.sendStatus(204);
     } else {
-      res.status(404);
-      res.send("Book not found");
+      res.status(404).json({message: "Not Found"});
     }
-  } catch (error) {
-    errorResponse(error, res);
-  }
-});
+  } catch (err) {console.log("error")}
+ });
 
 export default booksRouter;
