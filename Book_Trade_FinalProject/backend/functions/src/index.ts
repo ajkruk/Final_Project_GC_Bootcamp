@@ -21,9 +21,11 @@
 import * as functions from 'firebase-functions';
 import express from 'express';
 import cors from 'cors';
-import shoutoutRouter from './routes/booksRouter';
+import booksRouter from './routes/booksRouter';
+import usersRouter from './routes/usersRouter';
 const app = express();
 app.use(cors());
 app.use(express.json());
-app.use("/", shoutoutRouter);
+app.use("/books", booksRouter);
+app.use("/users", usersRouter)
 export const api = functions.https.onRequest(app);
