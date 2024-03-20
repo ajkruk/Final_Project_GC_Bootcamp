@@ -21,7 +21,7 @@ usersRouter.get("/", async (req, res) => {
     }
    });
 
-   usersRouter.get("/Trade2Save/:id", async (req, res) => {
+   usersRouter.get("/:id", async (req, res) => {
     try {
       const _id: ObjectId = new ObjectId(req.params.id);
       const client = await getClient();
@@ -35,7 +35,7 @@ usersRouter.get("/", async (req, res) => {
     } catch (err) { console.log("error") }
    });
 
-   usersRouter.post("/Trade2Save", async (req, res) => {
+   usersRouter.post("/", async (req, res) => {
     try {
       const user: User = req.body;
       const client = await getClient();
@@ -46,7 +46,7 @@ usersRouter.get("/", async (req, res) => {
     } catch (err) { console.log("error") }
    });
 
-   usersRouter.put("/Trade2Save/:id", async (req, res) => {
+   usersRouter.put("/:id", async (req, res) => {
     try {
       const _id: ObjectId = new ObjectId(req.params.id);
       const updatedUser: User = req.body;
@@ -56,6 +56,10 @@ usersRouter.get("/", async (req, res) => {
           .replaceOne({ _id }, updatedUser);
       if (result.modifiedCount) {
         updatedUser._id = _id;
+        updatedUser.first_name;
+        updatedUser.last_name;
+        updatedUser.user_name;
+        updatedUser.email;
         res.status(200).json(updatedUser);
       } else {
         res.status(404).json({ message: "Not Found" });
@@ -63,7 +67,7 @@ usersRouter.get("/", async (req, res) => {
     } catch (err) { console.log("error") }
    });
 
-   usersRouter.delete("/Trade2Save/:id", async (req, res) => {
+   usersRouter.delete("/:id", async (req, res) => {
     try {
       const _id: ObjectId = new ObjectId(req.params.id);
       const client = await getClient();

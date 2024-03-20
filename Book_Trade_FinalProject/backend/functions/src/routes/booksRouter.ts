@@ -10,7 +10,7 @@ const errorResponse = (error: any, res: any) => {
   res.status(500).json({message: "Internal Server Error"})
 }
 
-booksRouter.get("/Trade2Save", async (req, res) => {
+booksRouter.get("/", async (req, res) => {
   try {
     const client = await getClient();
     const cursor = client.db().collection<BookListing>("Books2Trade").find();
@@ -21,7 +21,7 @@ booksRouter.get("/Trade2Save", async (req, res) => {
   }
  });
 
-booksRouter.get("/Trade2Save/:id", async (req, res) => {
+booksRouter.get("/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);
     const client = await getClient();
@@ -37,18 +37,18 @@ booksRouter.get("/Trade2Save/:id", async (req, res) => {
 
 
 
-booksRouter.post("/Trade2Save", async (req, res) => {
+booksRouter.post("/", async (req, res) => {
   try {
     const books: BookListing = req.body;
     const client = await getClient();
     await client.db()
-        .collection<BookListing>("book")
+        .collection<BookListing>("Books2Trade")
         .insertOne(books);
     res.status(201).json(books);
   } catch (err) { console.log("error") }
  });
 
-booksRouter.put("/Trade2Save/:id", async (req, res) => {
+booksRouter.put("/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);
     const updatedBook: BookListing = req.body;
@@ -65,7 +65,7 @@ booksRouter.put("/Trade2Save/:id", async (req, res) => {
   } catch (err) { console.log("error") }
  });
 
-booksRouter.delete("/Trade2Save/:id", async (req, res) => {
+booksRouter.delete("/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);
     const client = await getClient();

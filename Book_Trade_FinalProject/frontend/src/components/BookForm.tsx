@@ -1,26 +1,19 @@
 import {useState} from 'react'
 import { addBook } from '../services/BookServices';
 
-interface Props {
-    onUpdate: () => void
-}
 
-function NewBook ({ onUpdate }: Props) {
+
+function NewBook() {
     const [title, setTitle] = useState('');
     const [author, setAuthor] = useState('');
     const [photo, setPhoto] = useState('');
 
-   
-
 
 
 return (
-    <form onSubmit={(e) => {
-        e.preventDefault();
+    <form onSubmit={() => {
         addBook({
             title, author, photo
-        }).then(() => {
-            onUpdate();
         });
     }}
     ><label>Book Title<input type="text" placeholder="Book Title" onChange={(e) => setTitle(e.target.value)} value={title}
@@ -29,7 +22,7 @@ return (
     <label>Author<input type="text" placeholder="Last Name, First Name" onChange={(e) => setAuthor(e.target.value)} value={author}
     ></input></label>
 
-    <label htmlFor='file'>Book Photo<input type="file" id="file" onChange={(e) => setPhoto(e.target.value)} value={author}
+    <label htmlFor='file'>Book Photo<input type="file" id="file" onChange={(e) => setPhoto(e.target.value)} value={photo}
     /></label>
     <button type="submit"> Add Book </button>
     </form>

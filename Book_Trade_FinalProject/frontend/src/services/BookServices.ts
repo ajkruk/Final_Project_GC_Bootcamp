@@ -1,7 +1,7 @@
 import axios from 'axios';
 import BookListingIf from '../models/BookListingInterface';
 
-const apiUrl = "http://localhost:5173/Trade2Save/Books2Trade";
+const apiUrl = "http://127.0.0.1:5001/final-project-27649/us-central1/api/books";
 
 const getAllBooks = async (): Promise<BookListingIf[]> => {
     const response = await axios.get<BookListingIf[]>(apiUrl);
@@ -9,16 +9,16 @@ const getAllBooks = async (): Promise<BookListingIf[]> => {
     return response.data;
 };
 
-const updateBook = (id: string, user: BookListingIf) => {
-    return axios.put(apiUrl + id, user);
+const updateBook = async (id: string, user: BookListingIf) => {
+    return await axios.put(apiUrl + id, user);
 };
 
-function addBook(book: BookListingIf) {
-    return axios.post(apiUrl, book);
+async function addBook(book: BookListingIf) {
+    return await axios.post(apiUrl, book);
 }
 
-function deleteBook(id: string) {
-    return axios.delete(apiUrl +id)
+async function deleteBook(id: string) {
+    return await axios.delete(apiUrl +id)
 }
 
 export {getAllBooks, updateBook, addBook, deleteBook}
