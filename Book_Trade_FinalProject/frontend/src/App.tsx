@@ -5,7 +5,7 @@ import Sort from './components/Sort';
 const App: React.FC = () => {
   return (
     <div>
-    <MainPage title="My Main Page" children={undefined}>
+    <MainPage title="My Main Page">
     <Sort></Sort>
 
     </MainPage>

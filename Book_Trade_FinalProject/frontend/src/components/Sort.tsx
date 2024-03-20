@@ -1,6 +1,5 @@
-import React from "react";
 import Book from "./Book";
-
+import { BookProps } from "./Book";
 
 const Sort = () => {
     const edensSeries = [
@@ -42,7 +41,7 @@ const Sort = () => {
         }
     ]
 
-    function sortByTitle (books, order) {
+    function sortByTitle (books:BookProps[], order:string) {
         const sortedBooks = [...books]
         if (order === "asc") {
 

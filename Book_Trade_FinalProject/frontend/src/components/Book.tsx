@@ -1,7 +1,7 @@
 import React from 'react';
 import './Book.css';
 
-interface BookProps {
+export interface BookProps {
     title: string;
     author: string;
     genre: string;
