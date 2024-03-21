@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
 import LoginPage from './LoginPage';
+import Book from './Book';
 
 type MainProps = {
-  title: string;
   children: React.ReactNode;
 };
 
-const MainPage: React.FC<MainProps> = ({ title, children }) => {
+const MainPage: React.FC<MainProps> = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //I will change this to the actual links later, but I do like these ones lol.
@@ -24,7 +24,6 @@ const MainPage: React.FC<MainProps> = ({ title, children }) => {
   return (
     <div id="main-page">
       <header id="main-header">
-        <h1>{title}</h1>
         {isLoggedIn ? (
           <Navigation links={navigationLinks} />
         ) : (
@@ -32,11 +31,9 @@ const MainPage: React.FC<MainProps> = ({ title, children }) => {
         )}
       </header>
       <main id="main-content">
-        {children}
+        {isLoggedIn && children}
       </main>
-      <footer id="main-footer">
-        <p>This is the footer.</p>
-      </footer>
+      {isLoggedIn && <Book title="Book Title" author="Book Author" genre="Book Genre" imageUrl="Book Image URL" />}
     </div>
   );
 };
