@@ -1,13 +1,20 @@
-import React from 'react';
+import React, { useState } from 'react';
+import LoginPage from './components/LoginPage';
 import MainPage from './components/MainPage';
-import Sort from './components/Sort';
 
 const App: React.FC = () => {
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  const handleLogin = () => {
+    // Perform your login logic here
+    // For demonstration purposes, let's consider login successful if user clicks on login button
+    setIsLoggedIn(true);
+  };
+
   return (
     <div>
-      <MainPage>
-        <Sort />
-      </MainPage>
+      {!isLoggedIn && <LoginPage onLogin={handleLogin} />}
+      {isLoggedIn && <MainPage children={undefined} />}
     </div>
   );
 };

@@ -1,68 +1,90 @@
-import React, { useState } from 'react';
 import './LoginPage.css';
+import 'mdb-react-ui-kit/dist/css/mdb.min.css';
+import {
+  MDBBtn,
+  MDBContainer,
+  MDBRow,
+  MDBCol,
+  MDBCard,
+  MDBCardBody,
+  MDBInput,
+  MDBCheckbox,
+} from 'mdb-react-ui-kit';
+
 
 type LoginPageProps = {
   onLogin: () => void;
 };
 
-const LoginPage: React.FC<LoginPageProps> = ({ onLogin }) => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
-
-  const handleSignIn = (event: React.FormEvent) => {
-    event.preventDefault();
-    if (username == 'admin' && password == 'password') {
-      setError('');
-      onLogin();
-    } else {
-      setError('Invalid username or password');
-    }
+function LoginPage({ onLogin }: LoginPageProps) {
+  const handleLogin = () => {
+    // We have to put our code in here for the login logic.
+    onLogin();
   };
 
   return (
-    <div>
-      <div className="sidenav">
-        <div className="login-main-text">
-          <h1>The Next Chapter </h1> 
-          <p>Login or register from here to access your future chapters.</p>
-        </div>
-      </div>
-      <div className="main">
-        <div className="col-md-6 col-sm-12">
-          <div className="login-form">
-            <form onSubmit={handleSignIn}>
-              <div className="form-group">
-                <label htmlFor="username">User Name</label>
-                <input
-                  type="text"
-                  className="form-control"
-                  id="username"
-                  placeholder="User Name"
-                  value={username}
-                  onChange={(e) => setUsername(e.target.value)}
-                />
+    <MDBContainer fluid className='p-4'>
+
+      <MDBRow>
+        <MDBCol md='6' className='text-center text-md-start d-flex flex-column'>
+          <h1 className="my-5 display-4 fw-bold ls-tight px-3">
+            The Next Chapter, <br />
+            <span className="text-light-brown">where books keep turning pages</span>
+          </h1>
+          <img src="./src/images/books.jpg" className="img-fluid" alt="books image" style={{ borderRadius: '45px', paddingTop: '20px' }} />
+
+        </MDBCol>
+
+        <MDBCol md='6' className='d-flex justify-content-center mb-10' style={{ height: '100vh' }}>
+
+        <div className='d-flex justify-content-center align-items-center' style={{ height: '100vh' }}>
+          <MDBCard className='my-5'>
+            <MDBCardBody className='p-5'>
+
+              <MDBRow>
+                <MDBCol col='6'>
+                  <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text' />
+                </MDBCol>
+
+                <MDBCol col='6'>
+                  <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text' />
+                </MDBCol>
+              </MDBRow>
+
+              <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' />
+              <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' />
+
+              <div className='d-flex justify-content-center mb-4'>
+                <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div>
-              <div className="form-group">
-                <label htmlFor="password">Password</label>
-                <input
-                  type="password"
-                  className="form-control"
-                  id="password"
-                  placeholder="Password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                />
+
+              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} onClick={handleLogin}>Sign Up</MDBBtn>
+
+              <div className="text-center">
+
+                <p>or sign up with:</p>
+
+
+                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }} onClick={() => { /* your function logic */ }}>
+                  <img src="./src/images/google-logo.jpg" alt="Google Logo" style={{ width: '24px', height: '24px' }} />
+                </MDBBtn>
+
+                <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
+                  <img src="./src/images/github-logo.jpg" alt="Github Logo" style={{ width: '24px', height: '24px' }} />
+                </MDBBtn>
+
               </div>
-              {error && <p style={{ color: 'skyblue' }}>{error}</p>}
-              <button type="submit" className="btn btn-black">Login</button>
-              <button type="button" className="btn btn-secondary">Register</button>
-            </form>
+
+            </MDBCardBody>
+          </MDBCard>
           </div>
-        </div>
-      </div>
-    </div>
+
+        </MDBCol>
+
+      </MDBRow>
+
+    </MDBContainer>
   );
-};
+}
 
 export default LoginPage;

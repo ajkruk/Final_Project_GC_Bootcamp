@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
-import LoginPage from './LoginPage';
 import Book from './Book';
 
 type MainProps = {
@@ -8,7 +7,6 @@ type MainProps = {
 };
 
 const MainPage: React.FC<MainProps> = ({ children }) => {
-  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   //I will change this to the actual links later, but I do like these ones lol.
   const navigationLinks = [
@@ -17,18 +15,12 @@ const MainPage: React.FC<MainProps> = ({ children }) => {
     { title: 'Contact', url: '/contact' },
   ];
 
-  const handleLogin = () => {
-    setIsLoggedIn(true);
-  };
+  const [isLoggedIn] = useState(false);
 
   return (
     <div id="main-page">
       <header id="main-header">
-        {isLoggedIn ? (
-          <Navigation links={navigationLinks} />
-        ) : (
-          <LoginPage onLogin={handleLogin} />
-        )}
+        <Navigation links={navigationLinks} />
       </header>
       <main id="main-content">
         {isLoggedIn && children}
@@ -36,6 +28,8 @@ const MainPage: React.FC<MainProps> = ({ children }) => {
       {isLoggedIn && <Book title="Book Title" author="Book Author" genre="Book Genre" imageUrl="Book Image URL" />}
     </div>
   );
+  
+  
 };
 
 export default MainPage;
