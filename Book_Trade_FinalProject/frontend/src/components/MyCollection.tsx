@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react"
-import UserIf from "../models/UserIf";
-import UserCard from "./UserCard"
-import { getAllUsers } from "../services/UserServices";
+import BookListingIf from "../models/BookListingInterface";
+import Book from "./Book";
+import { getAllBooks } from "../services/BookServices";
 
 
 function ChooseCollection() {
-    const [userCards, setUserCards] = useState<UserIf[]>([]); //naming array of objects and creating empty array
+    const [bookCards, setBookCards] = useState<BookListingIf[]>([]); //naming array of objects and creating empty array
     // const [userName, setUserName] = useState('');
     // const [image, setImange] = useState('');
 
     useEffect(() => { 
-        getAllUsers().then((response: UserIf[]) => {
+        getAllBooks().then((response: BookListingIf[]) => {
             console.log(`response: ${response}`)
-            setUserCards(response) 
+            setBookCards(response) 
         }).catch((error) => {
             console.log(error.message)
         }) 
@@ -22,12 +22,9 @@ return (
     <div>
         <h1>Choose a Collection</h1> 
 
-        {userCards ? userCards.map((userCard: UserIf, index: number) => {
-            const image = userCard.image.replace('blob:', '')
-            console.log(`userCard: ${userCard.userName}`)
-            console.log(`userImage: ${image}`)
+        {bookCards ? bookCards.map((bookCard: BookListingIf) => {
             
-            return <UserCard key={index} firstName={''} lastName={""} userName={userCard.userName} email={""} image={image}></UserCard>
+            return <Book title={bookCard.title}author={bookCard.author} imageUrl={bookCard.imageUrl}></Book>
         }) : <></>}
 
     </div>

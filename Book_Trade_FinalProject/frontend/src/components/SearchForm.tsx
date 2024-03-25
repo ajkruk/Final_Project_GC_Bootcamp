@@ -1,7 +1,7 @@
 // pull in individual book cards to display upon search
 
 import React, { useState } from 'react';
-import './Search.css';
+import './SearchForm.css';
 // import { searchBooks } from './GoogleBooks';
 
 interface SearchFormProps {
