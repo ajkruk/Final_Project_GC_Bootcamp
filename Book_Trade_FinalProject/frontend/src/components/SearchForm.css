@@ -1,0 +1,19 @@
+.search-container {
+    position: relative;
+}
+
+.search-icon {
+    cursor: pointer;
+}
+
+.search-input {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.search-container {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
