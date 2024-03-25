@@ -9,6 +9,7 @@ const getAllUsers = async (): Promise<UserIf[]> => {
     return response.data;
 };
 
+
 const updateUser = async (id: string, user: UserIf) => {
     return await axios.put(apiUrl + id, user);
 };
@@ -18,7 +19,7 @@ async function addUser(user: UserIf) {
 }
 
 async function deleteMember(id: string) {
-    return await axios.delete(apiUrl +id)
+    return await axios.delete(apiUrl +id);
 }
 
 export {getAllUsers, updateUser, addUser, deleteMember}

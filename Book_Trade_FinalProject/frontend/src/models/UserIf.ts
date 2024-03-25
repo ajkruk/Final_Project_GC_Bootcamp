@@ -3,8 +3,8 @@ interface UserIf {
     firstName: string,
     lastName: string,
     userName: string,
-    email: string 
-    photo: string
+    email: string, 
+    image: string
    }
    
    export default UserIf
