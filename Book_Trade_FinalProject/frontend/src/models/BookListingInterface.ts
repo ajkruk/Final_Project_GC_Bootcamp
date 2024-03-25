@@ -3,8 +3,9 @@ interface BookListingIf {
 
  _id?: string,
  title: string,
+ genre: string,
  author: string,
- photo: string 
+ imageUrl: string 
 }
 
 export default BookListingIf

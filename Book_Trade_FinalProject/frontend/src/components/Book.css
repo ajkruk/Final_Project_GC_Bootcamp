@@ -35,11 +35,6 @@
     margin: 0;
 }
 
-.book-genre {
-    font-size: 0.9em;
-    color: #666666;
-    font-style: italic;
-}
 
 @media (max-width: 768px) {
     .book {
