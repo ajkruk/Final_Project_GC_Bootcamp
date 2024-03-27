@@ -6,6 +6,8 @@ import { getAllUsers } from "../services/UserServices";
 
 function ChooseCollection() {
     const [userCards, setUserCards] = useState<UserIf[]>([]); //naming array of objects and creating empty array
+    // const [userName, setUserName] = useState('');
+    // const [image, setImange] = useState('');
 
     useEffect(() => { 
         getAllUsers().then((response: UserIf[]) => {
@@ -21,8 +23,11 @@ return (
         <h1>Choose a Collection</h1> 
 
         {userCards ? userCards.map((userCard: UserIf, index: number) => {
+            const image = userCard.image.replace('blob:', '')
             console.log(`userCard: ${userCard.userName}`)
-            return <UserCard key={index} firstName={""} lastName={""} userName={userCard.userName} email={""} image={userCard.image}></UserCard>
+            console.log(`userImage: ${image}`)
+            
+            return <UserCard key={index} firstName={''} lastName={""} userName={userCard.userName} email={""} image={image} password={""}></UserCard>
         }) : <></>}
 
     </div>

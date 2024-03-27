@@ -1,19 +1,21 @@
 import axios from 'axios';
-import BookListingIf from '../models/BookListingInterface';
+import BookListing from "../models/BookListing"
+
+
 
 const apiUrl = "http://127.0.0.1:5001/final-project-27649/us-central1/api/books";
 
-const getAllBooks = async (): Promise<BookListingIf[]> => {
-    const response = await axios.get<BookListingIf[]>(apiUrl);
+const getAllBooks = async (): Promise<BookListing[]> => {
+    const response = await axios.get<BookListing[]>(apiUrl);
 
     return response.data;
 };
 
-const updateBook = async (id: string, user: BookListingIf) => {
+const updateBook = async (id: string, user: BookListing) => {
     return await axios.put(apiUrl + id, user);
 };
 
-async function addBook(book: BookListingIf) {
+async function addBook(book: BookListing) {
     return await axios.post(apiUrl, book);
 }
 

@@ -58,7 +58,9 @@ function LoginPage({ onLogin }: LoginPageProps) {
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div>
 
-              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} onClick={handleLogin}>Sign Up</MDBBtn>
+              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} onClick={handleLogin}>Sign In</MDBBtn>
+
+              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} onClick={handleLogin}>Create Account</MDBBtn>
 
               <div className="text-center">
 
