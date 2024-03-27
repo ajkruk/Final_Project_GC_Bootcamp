@@ -10,6 +10,7 @@ export function NewUserForm () {
     const [lastName, setLastName] = useState<string>('');
     const [userName, setUserName] = useState<string>('');
     const [email, setEmail] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
     const [image, setImage] = useState<string>('');
     const [imageUpload, setImageUpload] = useState<Blob>();
     // const [imageUrl, setImageUrl] = useState<string>('');
@@ -35,6 +36,7 @@ export function NewUserForm () {
                 lastName, 
                 userName, 
                 email,
+                password,
                 image
             });
              
@@ -50,6 +52,9 @@ export function NewUserForm () {
 
             <label>Email Address<input type="text" placeholder="Email Address" onChange={(e) => setEmail(e.target.value)} value={email}
             ></input></label>   
+
+            <label>Create Password<input type="text" placeholder="Create Password" onChange={(e) => setPassword(e.target.value)} value={password}
+            ></input></label> 
 
         <div>
             <label> Profile Photo </label>

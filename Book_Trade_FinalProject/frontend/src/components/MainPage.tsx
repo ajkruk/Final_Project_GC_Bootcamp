@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import Navigation from './Navigation';
-import Book from './Book';
+// import Book from './Book';
 
 type MainProps = {
   children: React.ReactNode;
@@ -25,7 +25,7 @@ const MainPage: React.FC<MainProps> = ({ children }) => {
       <main id="main-content">
         {isLoggedIn && children}
       </main>
-      {isLoggedIn && <Book title="Book Title" author="Book Author" genre="Book Genre" imageUrl="Book Image URL" />}
+      {/* {isLoggedIn && <Book title="Book Title" author="Book Author" genre="Book Genre" imageUrl="Book Image URL" />} */}
     </div>
   );
   

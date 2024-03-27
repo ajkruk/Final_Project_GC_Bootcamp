@@ -1,6 +1,7 @@
 import React from 'react';
 import UserIf from '../models/UserIf';
 import "./UserCard.css"
+// import {Link} from 'react-router-dom'
 
 
 
@@ -13,7 +14,7 @@ const UserCard: React.FC<UserIf> = (user: UserIf) => {
             <img src={user.image} alt='profile photo' className="user-image" />
             <div className="user-info">
                 <h3 className="userName">{user.userName}</h3>
-                <button className="viewCollection">View Collection</button>
+                <button type="button" className="viewCollection">View Collection</button>
             </div>
         </div>
     );
