@@ -27,7 +27,7 @@ return (
             console.log(`userCard: ${userCard.userName}`)
             console.log(`userImage: ${image}`)
             
-            return <UserCard key={index} firstName={''} lastName={""} userName={userCard.userName} email={""} image={image}></UserCard>
+            return <UserCard key={index} firstName={''} lastName={""} userName={userCard.userName} email={""} image={image} password={""}></UserCard>
         }) : <></>}
 
     </div>

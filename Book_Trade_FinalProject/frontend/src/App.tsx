@@ -1,18 +1,12 @@
 // import React, { useState } from 'react';
-import LoginPage from './components/LoginPage';
-import MainPage from './components/MainPage';
-// import Sort from './components/Sort';
-// import SearchResults from './components/SearchResults';
-// import SearchForm from './components/SearchForm';
+// import LoginPage from './components/LoginPage';
+// import MyCollection from './components/MyCollection';
 // import { NewUserForm } from './components/NewUserForm';
 // import UserCard from './components/UserCard';
-// import ChooseCollection from './components/ChooseCollection';
-// import LoginPage from './components/LoginPage';
+import ChooseCollection from './components/ChooseCollection';
 // import SearchForm from './components/SearchForm';
-// import SearchResults from './components/SearchResults';
-// import NewBook from './components/BookForm';
-// import Book from './components/Book';
-
+// import ViewUserCollection from './components/ViewUserCollection';
+// import MainPage from './components/MainPage';
 
 const App: React.FC = () => {
   // const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -25,13 +19,18 @@ const App: React.FC = () => {
 
   return (
     <div>
-   
-    <MainPage children={undefined}></MainPage>
-    
-    <LoginPage onLogin={function (): void {
+      {/* <MainPage children={undefined}/>  */}
+      {/* {<LoginPage onLogin={function (): void {
         throw new Error('Function not implemented.');
-      } }/>
- 
+      } }/>} */}
+      {/* <NewUserForm/> */}
+      {/* <UserCard firstName={''} lastName={''} userName={''} email={''} password={''} image={''}/> */}
+      {/* <MyCollection/> */}
+      <ChooseCollection/>
+      {/* <ViewUserCollection/> */}
+      {/* <SearchForm/>  */}
+
+
     </div>
   );
 };
