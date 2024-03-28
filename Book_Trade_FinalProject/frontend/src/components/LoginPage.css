@@ -1,7 +1,32 @@
-.container {
+/* .container {
     background-color: hsl(0, 0%, 90%); 
   }
 
 .text-light-brown {
     color: #543F32;
+} */
+
+/* LoginPage.css */
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.login-card {
+  padding: 20px;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  border-radius: 10px;
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  /* Styles for input fields */
+}
+
+.login-form button {
+  /* Overriding button styles if needed */
 }

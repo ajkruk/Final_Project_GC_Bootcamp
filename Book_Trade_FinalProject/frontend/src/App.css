@@ -1,0 +1,38 @@
+/* styles.css */
+body {
+    font-family: 'Open Sans', sans-serif;
+    color: #3e3e3e; /* Dark grey for text */
+    background-color: #f4f4f2; /* Light background */
+  }
+  
+  .container {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px;
+  }
+  
+  h1, h2, h3, h4 {
+    color: #204051; /* Dark blue/green for headers */
+  }
+  
+  button {
+    padding: 10px 20px;
+    background-color: #3b6978; /* Earthy green/blue */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  button:hover {
+    background-color: #84a9ac; /* Lighter green/blue for hover */
+  }
+  
+  input, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border-radius: 5px;
+    border: 1px solid #dcdcdc;
+  }
+  

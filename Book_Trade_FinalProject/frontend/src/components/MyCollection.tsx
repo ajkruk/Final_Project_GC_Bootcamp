@@ -30,7 +30,7 @@ return (
                 categories: bookCard.categories,
                 imageLinks: {
                     smallThumbnail: undefined,
-                    thumbnail: bookCard.imageLinks.thumbnail,
+                    thumbnail: bookCard.imageLinks?.thumbnail || "",
                     small: undefined,
                     medium: undefined,
                     large: undefined,

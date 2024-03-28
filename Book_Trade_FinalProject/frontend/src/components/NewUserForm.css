@@ -1,5 +1,23 @@
-img {
-
-    height: 240px;
-    width: 200px;
-}
+/* NewUserForm.css */
+.new-user-form {
+    background-color: #e8e8e8; /* Light grey background */
+    padding: 20px;
+    border-radius: 10px;
+  }
+  
+  .new-user-form label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  .new-user-form input[type="text"],
+  .new-user-form input[type="email"],
+  .new-user-form input[type="password"],
+  .new-user-form input[type="file"] {
+    /* Input styles */
+  }
+  
+  .new-user-form button[type="submit"] {
+    /* Button styles, possibly override global button styles */
+  }
+  
