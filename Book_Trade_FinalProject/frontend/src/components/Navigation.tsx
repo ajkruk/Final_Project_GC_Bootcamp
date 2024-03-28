@@ -1,18 +1,22 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
-type NavigationProps = {
-  links: { title: string; url: string }[];
-};
-
-const Navigation: React.FC<NavigationProps> = ({ links }) => {
+const Navigation: React.FC = () => {
   return (
-    <nav id="main-navigation">
+    <nav>
       <ul>
-        {links.map((link, index) => (
-          <ul key={index}>
-            <a href={link.url}>{link.title}</a>
-          </ul>
-        ))}
+        <li>
+          <Link to="/">Home</Link>
+        </li>
+        <li>
+          <Link to="/main">Main Page</Link>
+        </li>
+        <li>
+          <Link to="/search">Search</Link>
+        </li>
+        <li>
+          <Link to="/new-user">New User</Link>
+        </li>
       </ul>
     </nav>
   );
