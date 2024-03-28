@@ -12,16 +12,8 @@ import {
 } from 'mdb-react-ui-kit';
 
 
-type LoginPageProps = {
-  onLogin: () => void;
-};
 
-function LoginPage({ onLogin }: LoginPageProps) {
-  const handleLogin = () => {
-    // We have to put our code in here for the login logic.
-    onLogin();
-  };
-
+function LoginPage() {
   return (
     <MDBContainer fluid className='p-4'>
 
@@ -58,7 +50,8 @@ function LoginPage({ onLogin }: LoginPageProps) {
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div>
 
-              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} onClick={handleLogin}>Sign Up</MDBBtn>
+              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} >Log In</MDBBtn>
+              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} >Sign Up</MDBBtn>
 
               <div className="text-center">
 
