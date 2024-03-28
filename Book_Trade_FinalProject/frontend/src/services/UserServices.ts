@@ -1,7 +1,7 @@
 import axios from 'axios';
 import UserIf from '../models/UserIf';
 
-const apiUrl = "http://127.0.0.1:5001/final-project-27649/us-central1/api/users";
+const apiUrl: string = (import.meta.env.VITE_API_URL || "")+"/users/";
 
 const getAllUsers = async (): Promise<UserIf[]> => {
     const response = await axios.get<UserIf[]>(apiUrl);
