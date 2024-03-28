@@ -4,6 +4,7 @@ interface UserIf {
     lastName: string,
     userName: string,
     email: string, 
+    password: string,
     image: string
    }
    

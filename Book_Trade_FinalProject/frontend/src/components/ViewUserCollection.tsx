@@ -1,7 +1,7 @@
 import Book from "./Book";
-import APIBookListingIf from "../models/APIBookListingInterface";
+import { BookProps } from "./Book";
 
-const Sort = () => {
+const ViewUserCollection = () => {
     const edensSeries = [
         {
             title: "Indigo Ridge",
@@ -35,13 +35,13 @@ const Sort = () => {
         }
     ]
 
-    function sortByTitle (books:APIBookListingIf[], order:string) {
+    function sortByTitle (books:BookProps[], order:string) {
         const sortedBooks = [...books]
         if (order === "asc") {
 
         sortedBooks.sort((a, b) => {
-        const nameA=a.volumeInfo.title
-        const nameB=b.volumeInfo.title
+        const nameA=a.title
+        const nameB=b.title
         if (nameA < nameB) return -1;
         if (nameA > nameB) return 1;
         return 0
@@ -51,8 +51,8 @@ const Sort = () => {
     if (order === "des") {
 
         sortedBooks.sort((a, b) => {
-        const nameA=a.volumeInfo.title
-        const nameB=b.volumeInfo.title
+        const nameA=a.title
+        const nameB=b.title
         if (nameA < nameB) return 1;
         if (nameA > nameB) return -1;
         return 0
@@ -67,6 +67,7 @@ const Sort = () => {
     sortByTitle(edensSeries, "des")
     
     return <div>
+        <h1>View Collection</h1>
         {edensSeries.map(book => (
                     <Book title={book.title} author={book.author} imageUrl={book.imageUrl}></Book>
         ))}
@@ -74,4 +75,4 @@ const Sort = () => {
 }
 
 
-export default Sort;
+export default ViewUserCollection;

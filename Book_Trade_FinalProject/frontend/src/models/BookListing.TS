@@ -1,11 +1,10 @@
-import { ObjectId } from 'mongodb';
 
 interface BookListing {
- _id?: ObjectId,
+ _id?: string,
  title: string,
  authors: string[],
  categories: string[],
- imageLinnks: { 
+ imageLinks: { 
     thumbnail: string 
 }}
 

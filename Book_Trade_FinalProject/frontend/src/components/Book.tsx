@@ -1,23 +1,36 @@
 import React from 'react';
 import './Book.css';
+import APIBookListingIf from '../models/APIBookListingInterface';
+import { addBook } from '../services/BookServices';
+// import { addBook } from '../services/BookServices';
 
-export interface BookProps {
-    title: string;
-    author: string;
-    imageUrl: string; // will typically call from api or user-uploaded image
-}
+const Book: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
+    if (!props.volumeInfo)
+    return null
 
-const Book: React.FC<BookProps> = ({ title, author, imageUrl }) => {
+
     return (
-        <div className="book">
-            <img src={imageUrl} alt={'Cover of ${title}'} className="book-image" />
-            <div className="book-info">
-                <h3 className="book-title">{title}</h3>
-                <p className="book-author">{author}</p>
-            </div>
+        <div>
+            
+                <img src={props.volumeInfo.imageLinks === undefined ? '' : props.volumeInfo.imageLinks.thumbnail}  alt={`${props.volumeInfo.title}`} className="book-image" /> 
+                <h2 className="book-title">{props.volumeInfo.title}</h2>
+                <h3 className="book-author">{props.volumeInfo.authors}</h3>
+                <p className="category">{props.volumeInfo.categories}</p>
+                <button type="button" onClick={() => {
+                    
+                    addBook({
+                        title: props.volumeInfo.title,
+                        authors: props.volumeInfo.authors,
+                        categories: props.volumeInfo.categories,
+                        imageLinks: {
+                            thumbnail: props.volumeInfo.imageLinks.thumbnail
+
+                        }
+                    })
+                }}>Add</button>
+        
         </div>
     );
 };
 
 export default Book;
-

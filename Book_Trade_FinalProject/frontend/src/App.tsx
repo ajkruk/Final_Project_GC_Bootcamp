@@ -30,7 +30,7 @@ function App() {
           <Route path='Welcome' element={<MainPage />} />
           <Route path='SignUp' element={<NewUserForm/>}/>
           <Route path='ChooseCollection' element={<ChooseCollection/>}/>
-          <Route path='UserCard' element={<UserCard/>}/>
+          <Route path='UserCard' element={<UserCard firstName={''} lastName={''} userName={''} email={''} password={''} image={''}/>}/>
           <Route path='Sort' element={<Sort/>}/>
         </Routes>
       </main>
