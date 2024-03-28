@@ -5,7 +5,8 @@ import { addBook } from '../services/BookServices';
 // import { addBook } from '../services/BookServices';
 
 const Book: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
-
+if (!props.volumeInfo)
+return null;
 
     return (
         <div>

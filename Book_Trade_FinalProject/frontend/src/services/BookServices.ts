@@ -3,7 +3,7 @@ import BookListing from "../models/BookListing"
 
 
 
-const apiUrl = "http://127.0.0.1:5001/final-project-27649/us-central1/api/books";
+const apiUrl: string = (import.meta.env.VITE_API_URL || "")+"/book"
 
 const getAllBooks = async (): Promise<BookListing[]> => {
     const response = await axios.get<BookListing[]>(apiUrl);
