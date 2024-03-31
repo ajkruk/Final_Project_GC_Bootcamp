@@ -6,8 +6,8 @@ interface TradeUser {
  first_name: string,
  last_name: string,
  user_name: string,
- email: string, 
- photo: string
+ password: string,
+ image: string
 }
 
 export default TradeUser

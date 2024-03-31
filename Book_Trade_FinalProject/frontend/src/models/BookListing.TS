@@ -5,7 +5,9 @@ interface BookListing {
  authors: string[],
  categories: string[],
  imageLinks: { 
-    thumbnail: string 
-}}
+        thumbnail: string
+    }
+owner: string | undefined;
+}
 
 export default BookListing

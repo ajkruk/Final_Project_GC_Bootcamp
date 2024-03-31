@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import Book from "./Book";
+import MyBooks from "./MyBooks";
 import { getAllBooks } from "../services/BookServices";
 import BookListing from "../models/BookListing";
 
@@ -24,7 +24,7 @@ return (
 
         {bookCards ? bookCards.map((bookCard: BookListing) => {
             
-            return <Book key={bookCard._id} volumeInfo={{
+            return <MyBooks key={bookCard._id} volumeInfo={{
                 title: bookCard.title,
                 authors: bookCard.authors,
                 categories: bookCard.categories,

@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
-import { getStorage } from "firebase/storage"
-import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { getAuth } from "firebase/auth";
+
 
 export const firebaseConfig = {
   apiKey: "AIzaSyCwiMSyQHXgL8MLgNpRHKW43fw4nRfXEUg",
@@ -12,26 +12,29 @@ export const firebaseConfig = {
 };
 
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
-export const storage = getStorage(app);
-// const userRef = ref(storage, 'user.jpg');
-// const uploadTask = uploadBytesResumable(storageRef, file, metadata);
 
-// const userImagesRef = ref(storage, 'images/user.jpg')
-// userRef.name === userImagesRef.name;
-// userRef.fullPath === userImagesRef.fullPath;
-// uploadBytes(storageRef, file).then((snapshot) => {
-//   console.log('Uploaded a blob or file!');
-// });
-// getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-//   console.log('File available at', downloadURL);
-// });
+// Initialize Firebase Authentication and get a reference to the service
+export const auth = getAuth(app);
 
-const authProvider = new GoogleAuthProvider();
+export default app;
 
-export function signInWithGoogle(): void {
- signInWithPopup(auth, authProvider);
-}
-export function signOut(): void {
- auth.signOut();
-}
+// export const setProfilePicture = (user: User, photoURL: string) => {
+//     updateProfile(user, {photoURL})
+// }
+// export const setDisplayName = (user: User, displayName: string) => {
+//   updateProfile(user, {displayName})
+// }
+
+// const authProvider = new GoogleAuthProvider();
+
+// export function signInWithEmail(email: string, password: string) {
+//   signInWithEmailAndPassword(auth, email, password)
+// }
+
+// export function signInWithGoogle(): void {
+//  signInWithPopup(auth, authProvider);
+// }
+
+// export function signOut(): void {
+//  auth.signOut();
+// }
