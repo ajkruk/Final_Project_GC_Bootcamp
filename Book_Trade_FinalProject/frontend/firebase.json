@@ -1,5 +1,16 @@
 {
-  "storage": {
-    "rules": "firebase deploy"
+
+     "storage": {
+      "rules": "firebase deploy"
+    },
+  
+    "hosting": {
+      "public": "public",  
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ]
+    }
   }
-}
+  

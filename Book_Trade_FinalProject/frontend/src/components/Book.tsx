@@ -2,10 +2,13 @@ import React from "react";
 import "./Book.css";
 import APIBookListingIf from "../models/APIBookListingInterface";
 import { addBook } from "../services/BookServices";
+import { useUser } from "../context/AuthContext";
 // import { addBook } from '../services/BookServices';
 
 const Book: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
-  if (!props.volumeInfo) return null;
+  const user = useUser();
+
+  if (!props.volumeInfo) {return null}
 
   return (
     <div>
@@ -31,6 +34,7 @@ const Book: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
             imageLinks: {
               thumbnail: props.volumeInfo.imageLinks.thumbnail,
             },
+            owner: user?.uid
           });
         }}
       >
