@@ -8,6 +8,10 @@
     border-radius: 4px;
 }
 
+.userCard button {
+    background-color: #608362;
+}
+
 img {
     width: 100px;
     height: 150px;
@@ -28,9 +32,10 @@ img {
     margin: 0;
 }
 
+
 label {
     font-size: 1em;
-    color: #555;
+    /* color: #555; */
     margin: 0;
 }
 

@@ -1,6 +1,6 @@
 /* Navigation.css */
 nav {
-    background-color: #3b6978;
+    color: #608362;
   }
   
   nav ul {
@@ -12,6 +12,7 @@ nav {
   
   nav ul li {
     padding: 20px;
+    color: #608362;
   }
   
   nav a {
@@ -20,6 +21,6 @@ nav {
   }
   
   nav a:hover {
-    text-decoration: underline;
+    text-decoration: highlight;
   }
   

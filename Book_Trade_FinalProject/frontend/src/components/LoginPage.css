@@ -8,11 +8,14 @@
 
 /* LoginPage.css */
 .login-container {
-  display: flex;
+  /* display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100vh;
+  height: 100vh; */
+  background-image: URL("./books.jpg");
+  background-size: cover;
+  background-position: center center;
 }
 
 .login-card {
@@ -29,4 +32,9 @@
 
 .login-form button {
   /* Overriding button styles if needed */
+  background-color: #b4bfbe;
+}
+
+h1 {
+  font-size: 25px;
 }
