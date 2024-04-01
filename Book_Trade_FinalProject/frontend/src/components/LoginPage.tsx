@@ -43,6 +43,15 @@ function LoginPage() {
         <div className='d-flex justify-content-center align-items-center' style={{  }}>
           <MDBCard className='my-5'>
             <MDBCardBody className='p-5'>
+            <MDBRow md='6' className='text-center text-md-start d-flex flex-column'>
+                <h2 className="my-5 display-4 fw-bold ls-tight px-3" style={{ fontSize: '45px', padding: '5px' }}>The Next Chapter<br />
+                </h2>
+                <h1>
+                <span className="text-light-brown" style={{ fontSize: '25px', padding: '10px', font: '' }}>where stories find new beginnings</span>
+                </h1>
+
+              </MDBRow>
+
 
               <MDBRow>
                 <MDBCol col='6'>
@@ -52,7 +61,7 @@ function LoginPage() {
                 <MDBCol col='6'>
                   <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text' />
                 </MDBCol>
-              </MDBRow> */}
+              </MDBRow> 
 
               <MDBInput wrapperClass='mb-4' label='Email' id='email' type='email' onChange={handleEmail} />
               <MDBInput wrapperClass='mb-4' label='Password' id='password' type='password' onChange={handlePassword}/>
