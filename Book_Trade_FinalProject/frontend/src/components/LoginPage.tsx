@@ -15,23 +15,24 @@ import {
 
 function LoginPage() {
   return (
-    <MDBContainer fluid className='p-4'>
+    <MDBContainer fluid className='p-4 login-container' >
 
-      <MDBRow>
-        <MDBCol md='6' className='text-center text-md-start d-flex flex-column'>
-          <h1 className="my-5 display-4 fw-bold ls-tight px-3">
-            The Next Chapter, <br />
-            <span className="text-light-brown">where books keep turning pages</span>
-          </h1>
-          <img src="./src/images/books.jpg" className="img-fluid" alt="books image" style={{ borderRadius: '45px', paddingTop: '20px' }} />
+      <MDBRow style={{  }}>
+        
 
-        </MDBCol>
+        <MDBRow md='6' className='d-flex justify-content-center mb-10' style={{  }}>
 
-        <MDBCol md='6' className='d-flex justify-content-center mb-10' style={{ height: '100vh' }}>
-
-        <div className='d-flex justify-content-center align-items-center' style={{ height: '100vh' }}>
+        <div className='d-flex justify-content-center align-items-center' style={{  }}>
           <MDBCard className='my-5'>
-            <MDBCardBody className='p-5'>
+            <MDBCardBody className='p-5' style= {{ maxWidth: '80vh' }}>
+              <MDBRow md='6' className='text-center text-md-start d-flex flex-column'>
+                <h2 className="my-5 display-4 fw-bold ls-tight px-3" style={{ fontSize: '45px', padding: '5px' }}>The Next Chapter<br />
+                </h2>
+                <h1>
+                <span className="text-light-brown" style={{ fontSize: '25px', padding: '10px', font: '' }}>where stories find new beginnings</span>
+                </h1>
+
+              </MDBRow>
 
               <MDBRow>
                 <MDBCol col='6'>
@@ -45,13 +46,13 @@ function LoginPage() {
 
               <MDBInput wrapperClass='mb-4' label='Email' id='form1' type='email' />
               <MDBInput wrapperClass='mb-4' label='Password' id='form1' type='password' />
-
+``
               <div className='d-flex justify-content-center mb-4'>
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div>
 
-              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} >Log In</MDBBtn>
-              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#543F32' }} >Sign Up</MDBBtn>
+              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#608362' }} >Log In</MDBBtn>
+              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#608362' }} >Sign Up</MDBBtn>
 
               <div className="text-center">
 
@@ -72,7 +73,7 @@ function LoginPage() {
           </MDBCard>
           </div>
 
-        </MDBCol>
+        </MDBRow>
 
       </MDBRow>
 

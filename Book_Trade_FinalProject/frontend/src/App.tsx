@@ -17,10 +17,10 @@ function App() {
       <header>
         <nav>
           <NavLink to='/'>Log In</NavLink>
-          <NavLink to='MainPage'>Main</NavLink>
+          <NavLink to='MainPage'>Home</NavLink>
           <NavLink to='SignUp'>Sign Up</NavLink>  
-          <NavLink to='ChooseCollection'>Choose Collection</NavLink>
-          <NavLink to='UserCard'>User Card</NavLink>
+          <NavLink to='ChooseCollection'>Find A Collection</NavLink>
+          <NavLink to='UserCard'>Your Collection</NavLink>
           <NavLink to='Sort'>Sort</NavLink>
         </nav>
       </header>
