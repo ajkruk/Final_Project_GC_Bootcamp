@@ -1,78 +1,47 @@
+import { useEffect, useState } from "react"
 import Book from "./Book";
-import { BookProps } from "./Book";
-
-const ViewUserCollection = () => {
-    const edensSeries = [
-        {
-            title: "Indigo Ridge",
-            author: "Devney Perry",
-            imageUrl: "https://m.media-amazon.com/images/I/71VeFEmBSsL._AC_UF1000,1000_QL80_.jpg"
-        },
-        {
-            title: "Juniper Hill",
-            author: "Devney Perry",
-            imageUrl: "https://m.media-amazon.com/images/I/510MOAGJzTL.jpg"
-        },
-        {
-            title: "Garnet Flats",
-            author: "Devney Perry",
-            imageUrl: "https://m.media-amazon.com/images/I/511XMMX5VVL.jpg"
-        },
-        {
-            title: "Jasper Vale",
-            author: "Devney Perry",
-            imageUrl: "https://m.media-amazon.com/images/I/512Fdj8iBGL.jpg"
-        },
-        {
-            title: "Crimson River",
-            author: "Devney Perry",
-            imageUrl: "https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1672870661i/75579822.jpg"
-        },
-        {
-            title: "Sable Peak",
-            author: "Devney Perry",
-            imageUrl: "https://m.media-amazon.com/images/I/51JpFAo1exL.jpg"
-        }
-    ]
-
-    function sortByTitle (books:BookProps[], order:string) {
-        const sortedBooks = [...books]
-        if (order === "asc") {
-
-        sortedBooks.sort((a, b) => {
-        const nameA=a.title
-        const nameB=b.title
-        if (nameA < nameB) return -1;
-        if (nameA > nameB) return 1;
-        return 0
-        }
-        )
-    }
-    if (order === "des") {
-
-        sortedBooks.sort((a, b) => {
-        const nameA=a.title
-        const nameB=b.title
-        if (nameA < nameB) return 1;
-        if (nameA > nameB) return -1;
-        return 0
-        }
-        )
-    }
+import { getAllBooks } from "../services/BookServices";
+import BookListing from "../models/BookListing";
 
 
-        console.log(sortedBooks)
-    }
+function ChooseCollection() {
+    const [bookCards, setBookCards] = useState<BookListing[]>([]); //naming array of objects and creating empty array
+    // const [userName, setUserName] = useState('');
+    // const [image, setImange] = useState('');
 
-    sortByTitle(edensSeries, "des")
-    
-    return <div>
-        <h1>View Collection</h1>
-        {edensSeries.map(book => (
-                    <Book title={book.title} author={book.author} imageUrl={book.imageUrl}></Book>
-        ))}
-    </div>
-}
+    useEffect(() => { 
+        getAllBooks().then((response: BookListing[]) => {
+            console.log(`response: ${response}`)
+            setBookCards(response) 
+        }).catch((error) => {
+            console.log(error.message)
+        }) 
+    }, []) //runs the once on pageload unless there is a dependancy in the array
+
+return (
+    <div>
+        <h1>Collection</h1> 
+
+        {bookCards ? bookCards.map((bookCard: BookListing) => {
+            
+            return <Book key={bookCard._id} volumeInfo={{
+                title: bookCard.title,
+                authors: bookCard.authors,
+                categories: bookCard.categories,
+                imageLinks: {
+                    smallThumbnail: undefined,
+                    thumbnail: bookCard.imageLinks?.thumbnail || "",
+                    small: undefined,
+                    medium: undefined,
+                    large: undefined,
+                    extraLarge: undefined
+                },
+            }}/>
+        }) : <></>}
+        </div>
+)}
 
 
-export default ViewUserCollection;
+//userCards above is checking if the array empty or not, if it is not empty it will do what is after the ? in this instance we are looping through the array to create a card for each item (map)
+//if not, it will do what is after the colon, here it will display a fragment to display nothing
+export default ChooseCollection
