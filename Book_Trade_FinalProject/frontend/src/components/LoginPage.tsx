@@ -46,8 +46,8 @@ function LoginPage() {
             <MDBRow md='6' className='text-center text-md-start d-flex flex-column'>
                 <h2 className="my-5 display-4 fw-bold ls-tight px-3" style={{ fontSize: '45px', padding: '5px' }}>The Next Chapter<br />
                 </h2>
-                <h1>
-                <span className="text-light-brown" style={{ fontSize: '25px', padding: '10px', font: '' }}>where stories find new beginnings</span>
+                <h1 className="login-slogan">
+                <span className="text-light-brown" style={{ fontSize: '25px', padding: '30px', marginTop: '30px', font: '' }}>where stories find new beginnings</span>
                 </h1>
 
               </MDBRow>
