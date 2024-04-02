@@ -18,6 +18,10 @@
   background-position: center center;
 }
 
+h1.login-slogan {
+  margin-bottom: 20px;
+}
+
 .login-card {
   padding: 20px;
   background-color: white;

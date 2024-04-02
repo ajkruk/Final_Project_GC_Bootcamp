@@ -19,8 +19,9 @@ function App() {
     <BrowserRouter>
       <header>
         <nav>
+          <NavLink to='/'><h1>The Next Chapter</h1></NavLink>
           <NavLink to='/'>Log In</NavLink>
-          <NavLink to='MainPage'>Home</NavLink>
+          <NavLink to='MainPage'>Search</NavLink>
           <NavLink to='SignUp'>Sign Up</NavLink>  
           <NavLink to='ChooseCollection'>Choose Collection</NavLink>
           <NavLink to='UserCard'>User Card</NavLink>
