@@ -1,7 +1,9 @@
 interface UserIf {
+    
+    displayName: string,
+    email?: string,
     _id?: string,
-    userName: string,
-    image: string
+    profilePicture: string,
    }
    
    export default UserIf
