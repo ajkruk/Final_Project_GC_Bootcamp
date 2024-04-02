@@ -19,13 +19,14 @@ function App() {
     <BrowserRouter>
       <header>
         <nav>
+          <NavLink to='MainPage'>Main</NavLink>
           <NavLink to='/'><h1>The Next Chapter</h1></NavLink>
           <NavLink to='/'>Log In</NavLink>
           <NavLink to='MainPage'>Search</NavLink>
-          <NavLink to='SignUp'>Sign Up</NavLink>  
+          {/* <NavLink to='SignUp'>Sign Up</NavLink>   */}
           <NavLink to='ChooseCollection'>Choose Collection</NavLink>
           <NavLink to='UserCard'>User Card</NavLink>
-          <NavLink to='MyCollection'>My Collection</NavLink>
+          {/* <NavLink to='MyCollection'>My Collection</NavLink> */}
           <NavLink to='ViewCollection'>View Collection</NavLink>
           <NavLink to='UpdateUser'>Update User Data</NavLink>
           <NavLink to='SearchForm'>Update User Data</NavLink>

@@ -13,6 +13,9 @@ import {
 } from 'mdb-react-ui-kit';
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
+import { useNavigate } from "react-router-dom";// First Add useNavigate
+
+
 
 function LoginPage() {
   const [email, setEmail] = useState('');
@@ -31,6 +34,13 @@ function LoginPage() {
   const handlePassword = (event: ChangeEvent<HTMLInputElement>): void  => {
     setPassword(event.target.value);
   }
+
+  const navigate = useNavigate(); // Second create function
+
+  const linkToSignUp = () => { // Third create function navigate
+    navigate('/SignUp')
+  }
+
 
   return (
     <MDBContainer fluid className='p-4 login-container' >
@@ -70,14 +80,17 @@ function LoginPage() {
                 <MDBCheckbox name='flexCheck' value='' id='flexCheckDefault' label='Subscribe to our newsletter' />
               </div>
 
-              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#608362' }} >Log In</MDBBtn>
-              <MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#608362' }} >Sign Up</MDBBtn>
-
+              <MDBBtn className='w-100 mb-4' type="button" size='lg' onClick={() => {
+                handleSubmit;
+                linkToSignUp;
+              }} style={{ backgroundColor: '#608362' }} >Log In</MDBBtn>
+              <Link to="SignUp"><MDBBtn className='w-100 mb-4' size='lg' style={{ backgroundColor: '#608362' }} >Sign Up</MDBBtn>
+              </Link>
               <div className="text-center">
 
                 <p>or sign up with:</p>
 
-
+              
               <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }} onClick={auth.signInWithGoogle}>
                   <img src="./src/images/google-logo.jpg" alt="Google Logo" style={{ width: '24px', height: '24px' }} />
                 </MDBBtn>

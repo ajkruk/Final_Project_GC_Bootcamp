@@ -3,12 +3,20 @@ import "./Book.css";
 import APIBookListingIf from "../models/APIBookListingInterface";
 import { addBook } from "../services/BookServices";
 import { useUser } from "../context/AuthContext";
+import { Navigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom"; // First Add useNavigate
 // import { addBook } from '../services/BookServices';
 
 const Book: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
   const user = useUser();
 
   if (!props.volumeInfo) {return null}
+
+const navigate = useNavigate(); // Second create function
+
+const linkToMyCollection = () => { // Third create function navigate
+  navigate('/MyCollection')
+}
 
   return (
     <div>
@@ -36,7 +44,9 @@ const Book: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
             },
             owner: user?.uid
           });
+          linkToMyCollection (); // 
         }}
+      
       >
         Add
       </button>
