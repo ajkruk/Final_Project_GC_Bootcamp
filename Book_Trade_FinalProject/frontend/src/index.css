@@ -1,14 +1,14 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Italiana&display=swap');
 
 :root {
   --primary: #000000;
   --secondary: #F5F5F5;
-  --terciary: #543F32;
+  --terciary: #608362;
 }
 body {
   margin: 0;
   padding: 20px;
-  font-family: "Poppins";
+  font-family: "Italiana";
   background: var(--secondary);
 }
 * {

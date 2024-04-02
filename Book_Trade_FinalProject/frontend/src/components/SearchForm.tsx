@@ -5,11 +5,19 @@ import './SearchForm.css';
 import { searchBooks } from '../services/GoogleBooks';
 import BookListingIf from '../models/APIBookListingInterface';
 import Book from './Book';
+import { getAuth } from "firebase/auth";
+
 
 
 const SearchForm: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
     const [books, setBooks] = useState<BookListingIf[]>([]);
+
+    const auth = getAuth();
+    const user = auth.currentUser!;
+
+   
+ 
 
     useEffect(() => {
         if (books) {
@@ -38,7 +46,7 @@ const SearchForm: React.FC = () => {
         </form>
        {books ? books.map((book) => {
         return(
-            <Book key={book.id} volumeInfo={{
+            <Book volumeInfo={{
                 title: book.volumeInfo.title,
                 authors: book.volumeInfo.authors,
                 categories: book.volumeInfo.categories,
@@ -50,7 +58,8 @@ const SearchForm: React.FC = () => {
                     large: undefined,
                     extraLarge: undefined
                 },
-            }}/>
+               
+            }} owner={user.uid}/>
         )
        }) : <></>}
         </div>
@@ -58,3 +67,5 @@ const SearchForm: React.FC = () => {
 };
 
 export default SearchForm;
+
+// owner={user.uid}/>
