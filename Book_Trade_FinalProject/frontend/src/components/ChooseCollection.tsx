@@ -1,21 +1,33 @@
 import { useEffect, useState } from "react"
 import UserIf from "../models/UserIf";
 import UserCard from "./UserCard"
-import { getAllUsers } from "../services/UserServices";
+import { collection, getDocs } from "firebase/firestore";
+import { db } from "../firebaseConfig";
 
 
 function ChooseCollection() {
     const [userCards, setUserCards] = useState<UserIf[]>([]); //naming array of objects and creating empty array
+   
 
     useEffect(() => {
-        
+        const fetchUsers = async () => {
+            try {
+                const querySnapshot = await getDocs(collection(db, "users"));
+                const userCardInfo: UserIf[] = [];
+                querySnapshot.forEach((doc) => {
+                    const userData = doc.data();
+                    userCardInfo.push(userData as UserIf);
 
-        getAllUsers().then((response: UserIf[]) => {
-            console.log(`response: ${response}`)
-            setUserCards(response) 
-        }).catch((error) => {
-            console.log(error.message)
-        })  
+                    console.log(doc.id, "=>", doc.data());
+                });
+                console.log('user cards:', userCardInfo);
+                setUserCards(userCardInfo);
+            } catch (error) {
+                console.error('Error returning user info:');
+            }
+  
+        };
+        fetchUsers();
     }, []);
     
 
@@ -24,11 +36,10 @@ function ChooseCollection() {
             <h1>Choose a Collection</h1> 
 
             {userCards ? userCards.map((userCard: UserIf) => {
-                const image = userCard.image.replace('blob:', '')
-                console.log(`userCard: ${userCard.userName}`)
-                console.log(`userImage: ${image}`)
+                console.log(`userCard: ${userCard.displayName}`)
+                console.log(`userImage: ${userCard.profilePicture}`)
                 
-                return <UserCard userName={""} image={""}/>
+                return <UserCard displayName={userCard.displayName} profilePicture={userCard.profilePicture}/>
             }) : <></>}
         </div>
     )
@@ -36,5 +47,3 @@ function ChooseCollection() {
 
 export default ChooseCollection
 
-//userCards above is checking if the array empty or not, if it is not empty it will do what is after the ? in this instance we are looping through the array to create a card for each item (map)
-//if not, it will do what is after the colon, here it will display a fragment to display nothing

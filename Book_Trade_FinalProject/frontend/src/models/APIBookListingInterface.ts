@@ -101,7 +101,8 @@ interface APIBookListingIf {
         },
         searchInfo?: {
           textSnippet: string
-        }
+        },
+        owner: string
       }
    
 

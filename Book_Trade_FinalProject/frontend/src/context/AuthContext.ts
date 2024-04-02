@@ -6,6 +6,7 @@ import {
   signOut,
   updateProfile,
   createUserWithEmailAndPassword,
+  UserCredential,
 } from "firebase/auth";
 import { createContext, useContext } from "react";
 import { auth } from "../firebaseConfig";
@@ -30,12 +31,13 @@ export const useUser = () => {
 
 export const useAuth = () => {
   const navigate = useNavigate();
+
   const signInWithEmail = async (email: string, password: string) => {
     console.log("signed in");
     await signInWithEmailAndPassword(auth, email, password)
       .then((user) => {
         console.log(user.user.email);
-        navigate("/MainPage"); //maybe navigate like in NewUserForm
+        navigate("/MainPage");
       })
       .catch((error: Error) => {
         console.log(error);
@@ -62,6 +64,7 @@ export const useAuth = () => {
         console.log(error);
       });
   };
+  
   const updateUserProfile = async (displayName: string, photoURL: string) => {
     if (auth.currentUser) {
         console.log(auth.currentUser.displayName)
@@ -77,15 +80,13 @@ export const useAuth = () => {
         });
     }
   };
-  const createUserWithEmail = async (email: string, password: string) => {
-    await createUserWithEmailAndPassword(auth, email, password)
-        .then(() => {
-            console.log("account created")
-            navigate("/UpdateUser")
-        }).catch((error: Error) => {
-            console.log(error)
-        })
 
+  const createUserWithEmail = async (email: string, password: string): Promise<UserCredential> => {
+    return await createUserWithEmailAndPassword(auth, email, password)
+        .then((user) => {
+            console.log("account created")
+            return user
+        })
   };
 
   return { signInWithEmail, signInWithGoogle, signOutUser, updateUserProfile, createUserWithEmail };

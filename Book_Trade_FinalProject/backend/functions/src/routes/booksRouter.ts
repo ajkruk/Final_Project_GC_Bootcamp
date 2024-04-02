@@ -35,7 +35,18 @@ booksRouter.get("/:id", async (req, res) => {
   } catch (err) { console.log("error") }
  });
 
-
+ booksRouter.get("/owner/:id", async (req, res) => {
+  try {
+    const client = await getClient();
+    const books = await client.db().collection<BookListing[]>("Books2Trade").find({ owner: req.params.id }).toArray();
+    console.log(books)
+    if (books) {
+      res.status(200).json(books);
+    } else {
+      res.status(404).json({message: "Not Found"});
+    }
+  } catch (err) { console.log("error") }
+ });
 
 booksRouter.post("/", async (req, res) => {
   try {
