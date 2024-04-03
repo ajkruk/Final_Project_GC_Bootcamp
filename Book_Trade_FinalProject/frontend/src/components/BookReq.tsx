@@ -3,20 +3,16 @@ import "./Book.css";
 import APIBookListingIf from "../models/APIBookListingInterface";
 import { addBook } from "../services/BookServices";
 import { useUser } from "../context/AuthContext";
-import { useNavigate } from "react-router-dom"; // First Add useNavigate
 // import { addBook } from '../services/BookServices';
 
-const Book: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
+const BookReq: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
   const user = useUser();
-  const navigate = useNavigate() // Second create function
 
   if(!props.volumeInfo) {
     return null
   }
 
-const linkToMyCollection = () => { // Third create function navigate
-  navigate('/MyCollection')
-}
+
   return (
     <div>
       <img
@@ -43,13 +39,11 @@ const linkToMyCollection = () => { // Third create function navigate
             },
             owner: user?.uid
           });
-          linkToMyCollection (); // 
+      
         }}
-      >
-        Add
-      </button>
+      >Request Trade</button>
     </div>
   );
 };
 
-export default Book;
+export default BookReq;

@@ -38,8 +38,9 @@ function ChooseCollection() {
             {userCards ? userCards.map((userCard: UserIf) => {
                 console.log(`userCard: ${userCard.displayName}`)
                 console.log(`userImage: ${userCard.profilePicture}`)
+                console.log(`_id: ${userCard.id}`)
                 
-                return <UserCard displayName={userCard.displayName} profilePicture={userCard.profilePicture}/>
+                return <UserCard displayName={userCard.displayName} profilePicture={userCard.profilePicture} id={userCard.id}/>
             }) : <></>}
         </div>
     )

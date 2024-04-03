@@ -6,7 +6,7 @@ import MainPage from './components/MainPage';
 import MyCollection from './components/MyCollection';
 import ViewUserCollection from './components/ViewUserCollection';
 import AuthProvider from './context/AuthContextProvider';
-import UpdateUser from './components/UpdateUserInfo';
+// import UpdateUser from './components/UpdateUserInfo';
 import SearchForm from './components/SearchForm';
 
 
@@ -14,36 +14,35 @@ function App() {
   
   return (
     <AuthProvider>
-    <BrowserRouter>
-      <header>
-        <nav>
-          {/* <NavLink to='MainPage'>Main</NavLink> */}
-          <NavLink to='/'><h1>The Next Chapter</h1></NavLink>
-          {/* <NavLink to='/'>Log In</NavLink> */}
-          <NavLink to='MainPage'>Home</NavLink>
-          {/* <NavLink to='SignUp'>Sign Up</NavLink>   */}
-          <NavLink to='ChooseCollection'>Choose Collection</NavLink>
-          <NavLink to='UserCard'>User Card</NavLink>
-          {/* <NavLink to='MyCollection'>My Collection</NavLink> */}
-          <NavLink to='ViewCollection'>My Collection</NavLink> {/* Here I renamed ViewCollection with MyCollection*/}
-          {/* <NavLink to='UpdateUser'>Update User Data</NavLink> */}
-          {/* <NavLink to='SearchForm'>Update User Data</NavLink> */} 
-        </nav>
-      </header>
-      <main>
-        <Routes>
-          <Route index element={<LoginPage />} />
-          <Route path='MainPage' element={<MainPage />} />
-          <Route path='SignUp' element={<NewUserForm/>}/>
-          <Route path='ChooseCollection' element={<ChooseCollection/>}/>
-          <Route path='MyCollection' element={<MyCollection/>}/>
-          <Route path='ViewCollection' element={<ViewUserCollection/>}/>
-          <Route path="UpdateUser" element={<UpdateUser/>}/>
-          <Route path="UpdateUser" element={<UpdateUser/>}/>
-          <Route path='SearchForm' element={<SearchForm/>}/>
-        </Routes>
-      </main>
-    </BrowserRouter>
+      <BrowserRouter>
+        <header>
+          <nav>
+            <NavLink to='MainPage'>Main</NavLink>
+            <NavLink to='/'><h1>The Next Chapter</h1></NavLink>
+            <NavLink to='/'>Log In</NavLink>
+            <NavLink to='MainPage'>Search</NavLink>
+            {/* <NavLink to='SignUp'>Sign Up</NavLink>   */}
+            <NavLink to='ChooseCollection'>Choose Collection</NavLink>
+            <NavLink to='UserCard'>User Card</NavLink>
+            <NavLink to='MyCollection'>My Collection</NavLink>
+            <NavLink to='ViewUserCollection'>View Collection</NavLink>
+            {/* <NavLink to='UpdateUser'>Update User Data</NavLink> */}
+            {/* <NavLink to='SearchForm'>Update User Data</NavLink> */}
+          </nav>
+        </header>
+        <main>
+          <Routes>
+            <Route index element={<LoginPage />} />
+            <Route path='MainPage' element={<MainPage />} />
+            <Route path='SignUp' element={<NewUserForm/>}/>
+            <Route path='ChooseCollection' element={<ChooseCollection/>}/>
+            <Route path='MyCollection' element={<MyCollection/>}/>
+            <Route path='ViewUserCollection' element={<ViewUserCollection/>}/>
+            {/* <Route path="UpdateUser" element={<UpdateUser/>}/> */}
+            <Route path='SearchForm' element={<SearchForm/>}/>
+          </Routes>
+        </main>
+      </BrowserRouter>
     </AuthProvider>
   );
 }
