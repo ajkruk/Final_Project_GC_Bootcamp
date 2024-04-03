@@ -4,9 +4,9 @@ interface BookListing {
  title: string,
  authors: string[],
  categories: string[],
- imageLinks: { 
-        thumbnail: string
-    }
+ imageLinks?: { 
+        thumbnail?: string
+    },
 owner: string | undefined;
 }
 

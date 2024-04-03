@@ -52,7 +52,7 @@ const SearchForm: React.FC = () => {
                 categories: book.volumeInfo.categories,
                 imageLinks: {
                     smallThumbnail: undefined,
-                    thumbnail: book.volumeInfo.imageLinks.thumbnail,
+                    thumbnail: book.volumeInfo.imageLinks?.thumbnail,
                     small: undefined,
                     medium: undefined,
                     large: undefined,
