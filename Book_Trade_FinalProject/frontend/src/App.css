@@ -1,39 +1,92 @@
 /* styles.css */
+
+
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: 'Italiana';
     color: #3e3e3e; /* Dark grey for text */
     background-color: #f4f4f2; /* Light background */
   }
+
+header {
+  width: 100%;
+  box-sizing: border-box;
+}
+
+div.name {
+  display: border-box;
+  font-size: 30px;
+}
   
-  .container {
-    max-width: 960px;
-    margin: 0 auto;
-    padding: 20px;
-  }
+/* .container {
+   max-width: 960px;
+   margin: 0 auto;
+   padding: 100px;
+} */
   
-  h1, h2, h3, h4 {
-    color: #204051; /* Dark blue/green for headers */
-  }
+/* h1, h2, h3, h4 {
+   color: #204051; /* Dark blue/green for headers */
+/* } */ */
+
+.main-nav {
+  color: #555;
+
+}
+
+.search-nav {
+  color: #555;
   
-  button {
-    padding: 10px 20px;
-    background-color: #608362; /* Earthy green/blue */
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
+}
+
+.signup-nav {
+  color: #555;
+
+}
+
+.collection-nav {
+  color: #555;
+
+}
+
+.viewcollection-nav {
+  color: #555;
+
+}
   
-  button:hover {
-    background-color: #84a9ac; /* Lighter green/blue for hover */
-  }
+button {
+   padding: 10px 20px;
+   background-color: #608362; /* Earthy green/blue */
+   color: white;
+   border: none;
+   border-radius: 5px;
+   cursor: pointer;
+}
   
-  input, select {
+button:hover {
+   background-color: #84a9ac; /* Lighter green/blue for hover */
+}
+  
+input, select {
+   width: 100%;
+   padding: 10px;
+   margin: 10px 0;
+   border-radius: 5px;
+   border: 1px solid #dcdcdc;
+}
+
+@media screen and (max-width: 768px) {
+  header {
     width: 100%;
-    padding: 10px;
-    margin: 10px 0;
-    border-radius: 5px;
-    border: 1px solid #dcdcdc;
+    box-sizing: border-box;
+    padding: 0 10px;
   }
-  `
+
+  .nav-link {
+    padding: 5px;
+    font-size: 14px;
+  }
+
+  .name {
+    font-size: 50px;
+  }
+}
   
