@@ -1,4 +1,9 @@
 /* MyCollection.css */
+
+h1 {
+  margin-left: 50px;
+}
+
 .collection-container {
   display: grid;
   gap: 20px;
@@ -25,7 +30,11 @@
 }
 
 @media screen and (min-width: 768px) { 
-  .collection-container {
+  /* .collection-container {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  } */
+
+  h1 {
+    margin-left: 10px;
   }
 }
