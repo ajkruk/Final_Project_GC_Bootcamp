@@ -10,8 +10,6 @@ import AuthProvider from './context/AuthContextProvider';
 import SearchForm from './components/SearchForm';
 
 
-
-
 function App() {  
   
   return (
