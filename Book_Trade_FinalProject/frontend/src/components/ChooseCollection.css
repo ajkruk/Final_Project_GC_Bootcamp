@@ -1,23 +1,31 @@
 /* MyCollection.css */
 .collection-container {
-    display: grid;
+  display: grid;
+  gap: 20px;
+}
+
+.book-card,
+.user-card {
+  border: 1px solid #dcdcdc;
+  border-radius: 10px;
+  padding: 10px;
+  text-align: center;
+}
+
+.book-card img,
+.user-card img {
+  width: 100%;
+  height: auto;
+  border-radius: 5px;
+}
+
+.book-card h3,
+.user-card h3 {
+  margin: 10px 0;
+}
+
+@media screen and (min-width: 768px) { 
+  .collection-container {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
-    gap: 20px;
   }
-  
-  .book-card, .user-card {
-    border: 1px solid #dcdcdc;
-    border-radius: 10px;
-    padding: 10px;
-    text-align: center;
-  }
-  
-  .book-card img, .user-card img {
-    width: 100%;
-    height: auto;
-    border-radius: 5px;
-  }
-  
-  .book-card h3, .user-card h3 {
-    margin: 10px 0;
-  }
+}

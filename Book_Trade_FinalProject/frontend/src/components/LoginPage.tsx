@@ -35,12 +35,12 @@ function LoginPage() {
             <MDBCard className='my-5'>
             <MDBCardBody className='p-5'>
             <MDBRow md='6' className='text-center text-md-start d-flex flex-column'>
-                <h2 className="my-5 display-4 fw-bold ls-tight px-3" style={{ fontSize: '45px', padding: '5px' }}>
+                <h2 className="my-5 display-4 ls-tight" style={{ fontSize: '45px', padding: '5px', textAlign: 'center' }}>
                   The Next Chapter<br />
                 </h2>
                 <h1 className="login-slogan">
-                  <span className="text-light-brown" style={{ fontSize: '25px', padding: '30px', marginTop: '30px', font: '' }}>
-                    where stories find new beginnings
+                  <span className="slogan" style={{ fontSize: '25px', font: '' }}>
+                    where old stories find new beginnings
                   </span>
                 </h1>
               </MDBRow>
