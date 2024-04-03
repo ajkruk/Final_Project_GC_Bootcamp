@@ -5,7 +5,6 @@ import {
   MDBBtn,
   MDBContainer,
   MDBRow,
-  MDBCol,
   MDBCard,
   MDBCardBody,
   MDBInput,
@@ -61,17 +60,6 @@ function LoginPage() {
                 </h1>
 
               </MDBRow>
-
-
-              <MDBRow>
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='First name' id='form1' type='text' />
-                </MDBCol>
-
-                <MDBCol col='6'>
-                  <MDBInput wrapperClass='mb-4' label='Last name' id='form1' type='text' />
-                </MDBCol>
-              </MDBRow> 
 
               <MDBInput wrapperClass='mb-4' label='Email' id='email' type='email' onChange={handleEmail} />
               <MDBInput wrapperClass='mb-4' label='Password' id='password' type='password' onChange={handlePassword}/>

@@ -16,9 +16,6 @@ const SearchForm: React.FC = () => {
     const auth = getAuth();
     const user = auth.currentUser!;
 
-   
- 
-
     useEffect(() => {
         if (books) {
         console.log(books)}
