@@ -31,6 +31,7 @@ button {
 
 header nav {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
     max-width: 1200px;
@@ -43,6 +44,7 @@ header nav a{
     padding: 10px;
     border-radius: 4px;
   }
+
 header nav a.active {
     background: var(--terciary);
     color: #F5F5F5;
