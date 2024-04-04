@@ -42,7 +42,6 @@ header nav {
     flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
-    max-width: 1200px;
     margin-bottom: 1rem;
     margin-top: 1rem;
     margin-left: 1rem;
@@ -73,8 +72,7 @@ header nav a.active {
     color: #000;
     margin-bottom: 1rem;
     margin-top: 1rem;
-    margin-left: 1rem;
-
+    
   }
 
   main {
