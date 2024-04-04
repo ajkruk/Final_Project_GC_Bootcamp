@@ -9,9 +9,11 @@ import {
   UserCredential,
 } from "firebase/auth";
 import { createContext, useContext } from "react";
-import { auth } from "../firebaseConfig";
+import { auth, db } from "../firebaseConfig";
 import { useNavigate } from "react-router-dom";
 import "firebase/database";
+import { collection, addDoc } from 'firebase/firestore';
+ // Assuming you have initialized Firebase
 
 export interface AuthContextModel {
   user: User | null; // null when not logged in
@@ -91,6 +93,23 @@ export const useAuth = () => {
 
   return { signInWithEmail, signInWithGoogle, signOutUser, updateUserProfile, createUserWithEmail };
 };
+
+
+
+export const sendMessage = async (senderId: string, recipientId: string, messageContent: string) => {
+  try {
+    await addDoc(collection(db, 'messages'), {
+      senderId,
+      recipientId,
+      content: messageContent,
+      timestamp: new Date()
+    });
+    console.log('Message sent successfully');
+  } catch (error) {
+    console.error('Error sending message:', error);
+  }
+};
+
 
 
 

@@ -1,14 +1,6 @@
-/* .container {
-    background-color: hsl(0, 0%, 90%); 
-  }
 
-.text-light-brown {
-    color: #543F32;
-} */
-
-/* LoginPage.css */
 .container-fluid.login-container {
-  background-image: URL("./books.jpg");
+  background-image: URL(".public/books.jpg");
   background-size: cover;
   background-position: center center;
   margin-left: -1rem;
