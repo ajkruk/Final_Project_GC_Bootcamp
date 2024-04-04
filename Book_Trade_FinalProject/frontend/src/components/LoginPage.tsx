@@ -33,7 +33,7 @@ function LoginPage() {
         <MDBRow md='6' className='d-flex justify-content-center mb-10'>
           <div className='d-flex justify-content-center align-items-center'>
             <MDBCard className='my-5'>
-            <MDBCardBody className='p-5'>
+            <MDBCardBody className='p-5 off-white'>
             <MDBRow md='6' className='text-center text-md-start d-flex flex-column'>
                 <h2 className="my-5 display-4 ls-tight" style={{ fontSize: '45px', padding: '5px', textAlign: 'center' }}>
                   The Next Chapter<br />
