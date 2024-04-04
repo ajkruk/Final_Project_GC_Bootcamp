@@ -20,13 +20,13 @@ img {
     border-radius: 2px;
 }
 
-.book-info {
+.user-info {
     display: flex;
     flex-direction: column;
     justify-content: space-around;
 }
 
-.book-title {
+.user-name {
     font-size: 1.2em;
     font-weight: bold;
     margin: 0;

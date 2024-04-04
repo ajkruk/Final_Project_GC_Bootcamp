@@ -13,6 +13,8 @@ import {
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from "react-router-dom";// First Add useNavigate
+import gitHubLogo from '../images/github-logo.jpg';
+import googleLogo from '../images/google-logo.jpg';
 
 
 
@@ -25,6 +27,7 @@ function LoginPage() {
   const handleSubmit = (): void => {
     console.log("login button tapped");
     auth.signInWithEmail(email, password); // this already navigates to the main page after login
+    navigate('./MainPage')
   }
   
   return (
@@ -60,10 +63,10 @@ function LoginPage() {
               <div className="text-center">
               <p>or sign up with:</p>
               <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }} onClick={auth.signInWithGoogle}>
-                <img src="./src/images/google-logo.jpg" alt="Google Logo" style={{ width: '24px', height: '24px' }} />
+                <img src={googleLogo} alt="Google Logo" style={{ width: '24px', height: '24px' }} />
               </MDBBtn>
               <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                <img src="./src/images/github-logo.jpg" alt="Github Logo" style={{ width: '24px', height: '24px' }} />
+                <img src={gitHubLogo} alt="Github Logo" style={{ width: '24px', height: '24px' }} />
               </MDBBtn>
               </div>
             </MDBCardBody>
