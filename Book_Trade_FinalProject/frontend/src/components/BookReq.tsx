@@ -1,9 +1,7 @@
 import React from "react";
 import "./Book.css";
 import APIBookListingIf from "../models/APIBookListingInterface";
-import { addBook } from "../services/BookServices";
-import { useUser } from "../context/AuthContext";
-// import { addBook } from '../services/BookServices';
+import { sendMessage, useUser } from "../context/AuthContext";
 
 const BookReq: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
   const user = useUser();
@@ -30,15 +28,10 @@ const BookReq: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
       <button
         type="button"
         onClick={() => {
-          addBook({
-            title: props.volumeInfo.title,
-            authors: props.volumeInfo.authors,
-            categories: props.volumeInfo.categories,
-            imageLinks: {
-              thumbnail: props.volumeInfo.imageLinks?.thumbnail,
-            },
-            owner: user?.uid
-          });
+          if (user) {
+            sendMessage(user.uid, props.owner, `I'm interested in a trade for ${props.volumeInfo.title}. Check out my collection!`);
+          } 
+          alert(`Request sent for ${props.volumeInfo.title} sent successfully!`)
       
         }}
       >Request Trade</button>

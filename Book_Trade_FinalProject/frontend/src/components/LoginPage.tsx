@@ -13,8 +13,9 @@ import {
 import { Link } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 import { useNavigate } from "react-router-dom";// First Add useNavigate
-import gitHubLogo from '../images/github-logo.jpg';
 import googleLogo from '../images/google-logo.jpg';
+
+
 
 
 
@@ -22,21 +23,24 @@ function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const auth = useAuth();
-  const navigate = useNavigate(); // Second create function
+  const navigate = useNavigate(); 
+
+  const newBackgroundImgSrc = '../public/books.jpg' 
 
   const handleSubmit = (): void => {
     console.log("login button tapped");
-    auth.signInWithEmail(email, password); // this already navigates to the main page after login
-    navigate('./MainPage')
+    auth.signInWithEmail(email, password); 
+  
   }
+
   
   return (
-    <MDBContainer fluid className='p-4 login-container'>
+    <MDBContainer fluid className='p-4 login-container' style={{backgroundImage: `url(${newBackgroundImgSrc})`}}>
       <MDBRow>
         <MDBRow md='6' className='d-flex justify-content-center mb-10'>
           <div className='d-flex justify-content-center align-items-center'>
             <MDBCard className='my-5'>
-            <MDBCardBody className='p-5 off-white'>
+            <MDBCardBody className='p-5'>
             <MDBRow md='6' className='text-center text-md-start d-flex flex-column'>
                 <h2 className="my-5 display-4 ls-tight" style={{ fontSize: '45px', padding: '5px', textAlign: 'center' }}>
                   The Next Chapter<br />
@@ -64,9 +68,6 @@ function LoginPage() {
               <p>or sign up with:</p>
               <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }} onClick={auth.signInWithGoogle}>
                 <img src={googleLogo} alt="Google Logo" style={{ width: '24px', height: '24px' }} />
-              </MDBBtn>
-              <MDBBtn tag='a' color='none' className='mx-3' style={{ color: '#1266f1' }}>
-                <img src={gitHubLogo} alt="Github Logo" style={{ width: '24px', height: '24px' }} />
               </MDBBtn>
               </div>
             </MDBCardBody>

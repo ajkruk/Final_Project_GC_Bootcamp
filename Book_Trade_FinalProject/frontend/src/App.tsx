@@ -20,8 +20,8 @@ function App() {
           <div className="name">The Next Chapter</div>
           <nav>
             {/* <NavLink className="title-nav" to='/'><h1>The Next Chapter</h1></NavLink> */}
-            <NavLink className="main-nav" to='/'>Main</NavLink>
-            <NavLink className="search-nav" to='SearchPage'>Search</NavLink>
+            <NavLink className="main-nav" to='/MainPage'>Main</NavLink>
+            {/* <NavLink className="search-nav" to='SearchPage'>Search</NavLink> */}
             {/* <NavLink to='SignUp'>Sign Up</NavLink>   */}
             <NavLink className="choose-collection" to='ChooseCollection'>Choose Collection</NavLink>
             {/* <NavLink to='UserCard'>User Card</NavLink> */}
