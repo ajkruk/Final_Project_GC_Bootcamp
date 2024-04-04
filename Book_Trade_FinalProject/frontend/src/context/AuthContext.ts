@@ -50,7 +50,7 @@ export const useAuth = () => {
       await signInWithPopup(auth, provider);
     } catch (error) {
       console.error(error);
-    }
+    } navigate("/MainPage")
   };
 
   const signOutUser = async () => {

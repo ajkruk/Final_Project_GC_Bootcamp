@@ -20,13 +20,13 @@ function App() {
           <div className="name">The Next Chapter</div>
           <nav>
             {/* <NavLink className="title-nav" to='/'><h1>The Next Chapter</h1></NavLink> */}
-            <NavLink className="MainPage" to='/'>Main</NavLink>
-            <NavLink className="search-nav" to='SearchPage'>Search</NavLink>
+            <NavLink className="MainPage" to='/MainPage'>Main</NavLink>
+            {/* <NavLink className="search-nav" to='SearchPage'>Search</NavLink> */}
             {/* <NavLink to='SignUp'>Sign Up</NavLink>   */}
-            <NavLink className="signup-nav" to='ChooseCollection'>Choose Collection</NavLink>
+            <NavLink className="choose-collection" to='ChooseCollection'>Choose Collection</NavLink>
             {/* <NavLink to='UserCard'>User Card</NavLink> */}
             <NavLink className="collection-nav" to='MyCollection'>My Collection</NavLink>
-            <NavLink className="viewcollection-nav" to='ViewUserCollection'>View Collection</NavLink>
+            {/* <NavLink className="viewcollection-nav" to='ViewUserCollection'>View Collection</NavLink> */}
             {/* <NavLink to='UpdateUser'>Update User Data</NavLink> */}
             {/* <NavLink to='SearchForm'>Update User Data</NavLink> */}
           </nav>

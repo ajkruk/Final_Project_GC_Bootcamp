@@ -16,7 +16,7 @@ const UserCard: React.FC<UserIf> = (user: UserIf) => {
             <img src={user.profilePicture} alt='profile photo' className="user-image" />
             <div className="user-info">
                 <h3 className="userName">{user.displayName}</h3>
-                <button type="button" className="viewCollection" onClick={() => navigate('/ViewUserCollection', {state: {ownerId: user.id}})}>View Collection</button>
+                <button type="button" id="viewButton"className="viewCollection" onClick={() => navigate('/ViewUserCollection', {state: {ownerId: user.id}})}>View Collection</button>
             </div>
         </div>
     );

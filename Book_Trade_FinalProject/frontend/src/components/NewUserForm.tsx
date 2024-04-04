@@ -5,6 +5,8 @@ import { db } from '../firebaseConfig';
 import { getDownloadURL, getStorage, ref, uploadBytes } from 'firebase/storage';
 import { doc, setDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
+import { v4 as uuidv4 } from 'uuid';
+
 
 
 
@@ -21,7 +23,7 @@ export function NewUserForm () {
 
   const uploadImage = () => {
     if (imageUpload == null) return;
-    const imageRef = ref(storage, `profileImages/${displayName}`);
+    const imageRef = ref(storage, `profileImages/${uuidv4()}`);
     uploadBytes(imageRef,  imageUpload).then((snapshot): void => {
         console.log(`snapshot: ${snapshot.metadata.fullPath}`)
         getDownloadURL(snapshot.ref).then((url) => {
@@ -34,6 +36,7 @@ export function NewUserForm () {
 
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
+    navigate('/MainPage')
 
     auth.createUserWithEmail(email, password).then(async (userCredential) => {
       console.log(`create user displayname: ${displayName} photo: ${profilePicture}`)

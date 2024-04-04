@@ -1,4 +1,61 @@
-.book {
+/* Book.css */
+.imageContainer {
+    text-align: center; /* Center the image */
+  }
+  
+  .book-image {
+    max-width: 100%; /* Ensure the image doesn't exceed its container */
+    height: auto; /* Maintain the aspect ratio */
+    margin-bottom: 10px; /* Add some space below the image */
+  }
+  
+  .book-title {
+    font-size: 1.2rem; /* Font size for title on mobile */
+    margin-bottom: 5px; /* Add some space below the title */
+  }
+  
+  .book-author {
+    font-size: 1rem; /* Font size for author on mobile */
+    font-style: italic; /* Make author name italic */
+    margin-bottom: 5px; /* Add some space below the author */
+  }
+  
+  .category {
+    font-size: 0.9rem; /* Font size for category on mobile */
+    color: #555; /* Dim color for category */
+    margin-bottom: 10px; /* Add some space below the category */
+  }
+  
+  button {
+    padding: 10px 20px; /* Padding for button */
+    background-color: #007bff; /* Button background color */
+    color: #fff; /* Button text color */
+    border: none; /* Remove button border */
+    border-radius: 5px; /* Add border radius to button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+  }
+  
+  button:hover {
+    background-color: #0056b3; /* Button background color on hover */
+  }
+  
+  /* Media query for larger screens */
+  @media screen and (min-width: 768px) {
+    .book-title {
+      font-size: 1.5rem; /* Increase font size for title on larger screens */
+    }
+  
+    .book-author {
+      font-size: 1.2rem; /* Increase font size for author on larger screens */
+    }
+  
+    .category {
+      font-size: 1rem; /* Increase font size for category on larger screens */
+    }
+  }
+  
+
+/* .book {
     display: flex;
     align-items: center;
     margin-bottom: 1em;
@@ -8,7 +65,7 @@
     border-radius: 4px;
 }
 
-.book-image {
+.imageContainer {
     width: 100px;
     height: 150px;
     object-fit: cover;
@@ -41,8 +98,9 @@
         align-items: center;
     }
 
-    .book-image {
+    .imageContainer {
         width: 80%;
+        height: auto;
         text-align: center;
     }
-}
+} */
