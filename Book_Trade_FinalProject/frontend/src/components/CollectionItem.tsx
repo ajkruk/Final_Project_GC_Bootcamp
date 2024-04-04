@@ -4,7 +4,7 @@ import APIBookListingIf from "../models/APIBookListingInterface";
 
 const Book: React.FC<APIBookListingIf> = (props: APIBookListingIf) => {
 
-  if(!props.volumeInfo) {
+  if(!props.volumeInfo) { //Checks for existence
     return null
   }
 

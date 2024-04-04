@@ -11,7 +11,7 @@ import { getAuth } from "firebase/auth";
 
 const SearchForm: React.FC = () => {
     const [searchTerm, setSearchTerm] = useState('');
-    const [books, setBooks] = useState<BookListingIf[]>([]);
+    const [books, setBooks] = useState<BookListingIf[]>([]); //empty array
 
     const auth = getAuth();
     const user = auth.currentUser!;

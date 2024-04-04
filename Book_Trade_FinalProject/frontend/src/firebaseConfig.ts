@@ -1,5 +1,5 @@
-import { getAuth } from "firebase/auth";
-import firebase from "firebase/compat/app";
+import { getAuth } from "firebase/auth"; //firebase authentication
+import firebase from "firebase/compat/app"; //firebase compatibility
 import { getFirestore } from "firebase/firestore";
 
 export const firebaseConfig = {
@@ -12,17 +12,10 @@ export const firebaseConfig = {
 };
 
 const app = firebase.initializeApp(firebaseConfig);
+
+// Get a reference to the Firestore database service
 export const db = getFirestore(app);
 
-// export const firestore = firebase.firestore();
-
-// Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
 
 export default app;
-
-// const authProvider = new GoogleAuthProvider();
-
-// export function signInWithGoogle(): void {
-//  signInWithPopup(auth, authProvider);
-// }

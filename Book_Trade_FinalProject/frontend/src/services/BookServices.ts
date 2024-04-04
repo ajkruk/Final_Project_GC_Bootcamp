@@ -1,7 +1,7 @@
 import axios from "axios";
 import BookListing from "../models/BookListing";
 
-const apiUrl: string = (import.meta.env.VITE_API_URL || "") + "/books/";
+const apiUrl: string = (import.meta.env.VITE_API_URL || "") + "/books/"; //
 
 const getAllBooks = async (): Promise<BookListing[]> => {
   const response = await axios.get<BookListing[]>(apiUrl);
