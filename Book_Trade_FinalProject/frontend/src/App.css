@@ -12,21 +12,19 @@ header {
   box-sizing: border-box;
 }
 
-div.name {
+.name {
   display: border-box;
-  font-size: 30px;
+  font-size: 40px;
+  /* padding-left: 10px;
+  margin-left: 10px; */
 }
   
-/* .container {
+.container {
    max-width: 960px;
    margin: 0 auto;
    padding: 100px;
-} */
+}
   
-/* h1, h2, h3, h4 {
-   color: #204051; /* Dark blue/green for headers */
-/* } */ */
-
 .main-nav {
   color: #555;
 
@@ -73,6 +71,11 @@ input, select {
    border: 1px solid #dcdcdc;
 }
 
+
+
+
+
+
 @media screen and (max-width: 768px) {
   header {
     width: 100%;
@@ -86,7 +89,8 @@ input, select {
   }
 
   .name {
-    font-size: 50px;
+    font-size: 40px;
+    align-content: center;
   }
 }
   

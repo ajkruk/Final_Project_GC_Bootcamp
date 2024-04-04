@@ -17,7 +17,7 @@ const MainPage: React.FC = () => {
         {isLoggedIn}
           <div className="signOutDiv">
             {/* <h1>Change title if we need one</h1> */}
-            <button onClick={handleSignOut}>Sign out</button> 
+            <button onClick={handleSignOut}>Sign Out</button> 
         </div>
       </div>
     </div>

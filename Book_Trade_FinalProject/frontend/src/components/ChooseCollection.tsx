@@ -3,6 +3,7 @@ import UserIf from "../models/UserIf";
 import UserCard from "./UserCard"
 import { collection, getDocs } from "firebase/firestore";
 import { db } from "../firebaseConfig";
+import './ChooseCollection.css';
 
 
 function ChooseCollection() {

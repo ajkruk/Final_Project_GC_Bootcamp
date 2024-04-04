@@ -10,7 +10,7 @@ const errorResponse = (error: any, res: any) => {
   res.status(500).json({message: "Internal Server Error"})
 }
 
-
+// getting book results
 booksRouter.get("/", async (req, res) => {
   try {
     const client = await getClient();
@@ -22,6 +22,7 @@ booksRouter.get("/", async (req, res) => {
   }
  });
 
+// getting books by object id, assigned by mongodb
 booksRouter.get("/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);
@@ -36,6 +37,7 @@ booksRouter.get("/:id", async (req, res) => {
   } catch (err) { console.log("error") }
  });
 
+// getting books by specific owner id from mongodb
  booksRouter.get("/owner/:id", async (req, res) => {
   try {
     const client = await getClient();
@@ -49,6 +51,7 @@ booksRouter.get("/:id", async (req, res) => {
   } catch (err) { console.log("error") }
  });
 
+// adding a new book to a collection 
 booksRouter.post("/", async (req, res) => {
   try {
     const books: BookListing = req.body;
@@ -60,6 +63,7 @@ booksRouter.post("/", async (req, res) => {
   } catch (err) { console.log("error") }
  });
 
+// allows you to make changes/updates to document in your database
 booksRouter.put("/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);
@@ -77,6 +81,7 @@ booksRouter.put("/:id", async (req, res) => {
   } catch (err) { console.log("error") }
  });
 
+// allows you to remove books from your collection 
 booksRouter.delete("/:id", async (req, res) => {
   try {
     const _id: ObjectId = new ObjectId(req.params.id);

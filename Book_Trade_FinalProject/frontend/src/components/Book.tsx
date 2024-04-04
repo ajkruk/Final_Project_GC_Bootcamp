@@ -19,16 +19,16 @@ const linkToMyCollection = () => { // Third create function navigate
 }
   return (
     <div>
-      <div className="imageContainer">
-      <img
-        src={
-          props.volumeInfo.imageLinks === undefined
-            ? ""
-            : props.volumeInfo.imageLinks.thumbnail
-        }
-        alt={`${props.volumeInfo.title}`}
-        className="book-image"
-      />
+      <div className="image-container">
+        <img
+          src={
+            props.volumeInfo.imageLinks === undefined
+              ? ""
+              : props.volumeInfo.imageLinks.thumbnail
+          }
+          alt={`${props.volumeInfo.title}`}
+          className="book-image"
+        />
       </div>
       <h2 className="book-title">{props.volumeInfo.title}</h2>
       <h3 className="book-author">{props.volumeInfo.authors}</h3>

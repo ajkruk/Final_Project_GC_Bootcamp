@@ -5,19 +5,27 @@
   --secondary: #F5F5F5;
   --terciary: #608362;
 }
+
 body {
   margin: 0;
   padding: 0px;
   font-family: "Italiana";
   background: var(--secondary);
 }
-/* * {
-  color: #000;
-  margin: 0;
-} */
+
+main {
+  padding: 1rem;
+}
+
+.name {
+  margin-top: 15px;
+  text-align: center;
+}
+
 p {
   margin: 20px 0;
 }
+
 button {
   border: 0;
   padding: 8px;
@@ -31,10 +39,13 @@ button {
 
 header nav {
     display: flex;
+    flex-wrap: wrap;
     gap: 16px;
     justify-content: center;
     max-width: 1200px;
-    margin: 0 auto;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
     color: #000;
   }
   
@@ -43,16 +54,34 @@ header nav a{
     padding: 10px;
     border-radius: 4px;
   }
+
 header nav a.active {
     background: var(--terciary);
     color: #F5F5F5;
   }
 
+
+
+
+
+
+
+/* mobile styles */
 @media screen and (max-width: 768px) {
   header nav {
     display: flex;
-    justify-content: flex-start;
-    padding: 0 20px;
     color: #000;
+    margin-bottom: 1rem;
+    margin-top: 1rem;
+    margin-left: 1rem;
+
+  }
+
+  main {
+    padding: 1rem;
+  }
+
+  .name {
+    margin-top: 15px;
   }
 }
