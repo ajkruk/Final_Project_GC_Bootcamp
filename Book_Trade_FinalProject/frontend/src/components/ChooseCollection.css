@@ -1,8 +1,5 @@
 /* MyCollection.css */
 
-h1 {
-  margin-left: 50px;
-}
 
 .collection-container {
   display: grid;
@@ -24,17 +21,22 @@ h1 {
   border-radius: 5px;
 }
 
+h1 {
+  /* margin-left: 150px; */
+}
+
+
 .book-card h3,
 .user-card h3 {
   margin: 10px 0;
 }
 
-@media screen and (min-width: 768px) { 
+@media screen and (max-width: 768px) { 
   /* .collection-container {
     grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
   } */
 
   h1 {
-    margin-left: 10px;
+    /* margin-left: 15px; */
   }
 }
